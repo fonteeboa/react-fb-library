@@ -15,3 +15,7 @@ export interface MenuItem {
   icon: FontAwesomeIconType | string;
   subMenu: SubMenuItem[];
 }
+
+export interface SidebarMenuProps {
+  menuItems: MenuItem[];
+}

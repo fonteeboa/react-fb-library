@@ -8,10 +8,10 @@ import { LayoutProps } from './screenLayout';
  * @param {LayoutProps} props - The props object containing the children.
  * @return {React.ReactNode} The rendered screen layout component.
  */
-const ScreenLayout: React.FC<LayoutProps> = ({ children }) => {
+const ScreenLayout: React.FC<LayoutProps> = ({ children, menuItems }) => {
   return (
     <div className="layout">
-      <Sidebar />
+      <Sidebar menuItems={menuItems} />
       <main className="content">{children}</main>
     </div>
   );

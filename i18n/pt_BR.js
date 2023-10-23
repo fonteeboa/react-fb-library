@@ -18,7 +18,6 @@ const pt_BR = {
   "common.add": "Adicionar",
   "common.delete.select": "Excluir selecionados",
   "common.edit": "Editar",
-  "common.add": "Adicionar",
   "common.save": "Salvar",
   "common.cancel": "Cancelar",
   "common.ok": "Ok",
