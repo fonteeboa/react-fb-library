@@ -6,30 +6,7 @@ import { Form, DatePicker, Card, Divider, Space, Row, Col } from "antd";
 import { InputField, Button, SelectComponent } from '../../base-components';
 import moment from 'moment';
 import { validFields } from '../../../helpers/utils';
-
-type Field = {
-  name: string;
-  label?: string;
-  type?: string;
-  placeholder?: string;
-  optionsFunction?: () => any;
-  style?: {};
-  doublelines?: Field[];
-  rules?: any[];
-  required?: boolean;
-};
-
-type ModalProps = {
-  closeModal: (form: any) => void;
-  onSave: (data: FormInstance<FormData>) => void;
-  fields: Field[];
-  contentLabel: string;
-  currentItem?: any;
-};
-
-type FormData = {
-  [key: string]: string;
-};
+import { ModalProps, Field, FormData } from './modalType';
 
 const customStyles = {
   doublelines: {
@@ -51,16 +28,17 @@ export const CustomModal: React.FC<ModalProps> = ({ closeModal, onSave, fields, 
   const [form] = Form.useForm<FormInstance<FormData>>();
 
   useEffect(() => {
-    setCurrentItemValues();
-  }, []);
-
-  const setCurrentItemValues = () => {
-    if (typeof currentItem === 'object' && currentItem !== null) {
-      Object.keys(currentItem).forEach((key) => {
-        form.setFieldsValue({ [key]: validFields(currentItem[key], key) });
-      })
+    const setCurrentItemValues = () => {
+      if (typeof currentItem === 'object' && currentItem !== null) {
+        Object.keys(currentItem).forEach((key) => {
+          form.setFieldsValue({ [key]: validFields(currentItem[key], key) });
+        })
+      }
     }
-  }
+    
+    setCurrentItemValues();
+  }, [form, currentItem]);
+
 
   const handleSubmit = async (e: any) => {
     try {
