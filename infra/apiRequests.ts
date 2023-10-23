@@ -1,55 +1,82 @@
-import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
+import axios, { AxiosResponse } from "axios";
+import { RequestConfig, ServiceParams } from "./typeRequest";
+import { baseConfig } from "./constantsRequets";
 
-interface RequestOptions {
-  method: string;
-  url: string;
-  data?: any;
-  headers?: Record<string, any>;
-  baseUrl: string;
-}
+let config = baseConfig;
 
-class HttpClient {
-  private instance: AxiosInstance;
-
-  constructor(instance: AxiosInstance, baseUrl: string, timeout: number = 10000) {
-    this.instance = instance;
-    this.instance.defaults.baseURL = baseUrl;
-    this.instance.defaults.timeout = timeout;
+export const getService = async <T>(params: ServiceParams): Promise<T> => {
+  const { baseUrl, route = '', body = {}, authToken = false } = params;
+  if (authToken) {
+    config = await setTokenAuth(config);
   }
-
-  setHeaders(headers: Record<string, any>): void {
-    this.instance.defaults.headers.common = { ...headers };
-  }
-
-  async makeRequest<T>({
-    method,
-    url,
-    data,
-    headers = {},
-  }: RequestOptions): Promise<T> {
-    try {
-      const response: AxiosResponse<T> = await this.instance.request({ method, url, data, headers });
-      return response.data;
-    } catch (error) {
-      const axiosError = error as AxiosError;
-      if (axiosError.response) {
-        return Promise.reject(axiosError.response.data);
-      } else {
-        return Promise.reject(`Request failed: ${axiosError.message}`);
-      }
-    }
-  }
-}
-
-export const createHttpClient = (baseUrl: string, timeout?: number, axiosInstance?: AxiosInstance): HttpClient => {
-  const instance = axiosInstance || axios.create();
-  return new HttpClient(instance, baseUrl, timeout);
+  const url = baseUrl + route;
+  return axios.get(url, { ...config, params: body }).then((response: AxiosResponse<T>) => {
+    return response.data;
+  }).catch(error => {
+    console.log(error);
+    return [] as T;
+  });
 };
 
-export const api = {
-  request: async <T>(options: RequestOptions, axiosInstance?: AxiosInstance): Promise<T> => {
-    return createHttpClient(options.baseUrl, undefined, axiosInstance).makeRequest<T>(options);
-  },
+export const postService = async <T> (params: ServiceParams): Promise<T | boolean> => {
+    const { baseUrl, route = '', body = {}, authToken = false } = params;
+  if (authToken) {
+    config = await setTokenAuth(config);
+  }
+  const url = baseUrl + route;
+  return axios.post(url, body, config).then((response: AxiosResponse<T>) => {
+    return response.data;
+  }).catch(error => {
+    console.log(error);
+    return false;
+  });
 };
 
-export default api; // Adicione esta linha se você desejar exportar o módulo como padrão
+
+export const putService = async <T>(params: ServiceParams): Promise<T | boolean> => {
+  const { baseUrl, route = '', body = {}, authToken = false } = params;
+  if (authToken) {
+    config = await setTokenAuth(config);
+  }
+  const url = baseUrl + route;
+  return axios.put(url, body, config).then((response: AxiosResponse<T>) => {
+    return response.data;
+  }).catch(error => {
+    console.log(error);
+    return false;
+  });
+};
+
+
+export const deleteService = async <T>(params: ServiceParams): Promise<T | boolean> => {
+  const { baseUrl = '', route = '', authToken = false } = params;
+  if (authToken) {
+    config = await setTokenAuth(config);
+  }
+  const url = baseUrl + route;
+  return axios.delete(url, config).then((response: AxiosResponse<T>) => {
+    return response.data;
+  }).catch(error => {
+    console.log(error);
+    return false;
+  });
+}
+
+export const checkGetRequest = async (params: ServiceParams): Promise<boolean> => {
+  const { baseUrl, route = '' } = params;
+  try {
+    const response = await axios.get(baseUrl + route);
+    return response.status === 200;
+  } catch (error) {
+    console.error("Erro na solicitação GET:", error);
+    return false;
+  }
+};
+
+const setTokenAuth = async (config: RequestConfig): Promise<RequestConfig> => {
+  const authToken = await sessionStorage.getItem('authToken');
+  if (authToken) {
+    config.headers['Authorization'] = 'Bearer ' + authToken;
+  }
+  return config;
+}
