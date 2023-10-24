@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Card, Button, Menu, Dropdown, Popconfirm } from 'antd';
 import { tableStyle } from './constants/constants';
-import type { CustomTableProps } from './types/types';
+import type { CustomTableProps } from './domain/types';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { QuestionCircleOutlined } from '@ant-design/icons';
