@@ -1,7 +1,7 @@
 import React from 'react';
 import { Result, Button } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { DownloadMicroserviceScreenProps } from './types/types';
+import { DownloadMicroserviceScreenProps } from './domain/types';
 /**
  * Reloads the current page.
  *

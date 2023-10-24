@@ -1,6 +1,6 @@
 import React from 'react';
 import { User, Mail, LockClosed, } from "heroicons-react";
-import { IInputField } from './types/types';
+import { IInputField } from './domain/types';
 import {Input} from 'antd';
 
 /**
