@@ -1,20 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Card, Button, Menu, Dropdown, Popconfirm } from 'antd';
-import { tableStyle } from './constants';
-import type { ColumnsType } from 'antd/es/table';
+import { tableStyle } from './constants/constants';
+import type { CustomTableProps } from './types/types';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-
-interface CustomTableProps<T> {
-  dataSource: T[];
-  columns: ColumnsType<T>;
-  title?: (() => React.ReactNode);
-  footer?: (() => React.ReactNode);
-  bulkAction?: any[];
-  pageTitle?: string;
-}
 
 /**
  * Render a custom table component.
