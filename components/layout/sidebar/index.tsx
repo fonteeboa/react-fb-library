@@ -1,13 +1,20 @@
 import React from 'react';
 import { Menu } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { MenuItem, SubMenuItem, SidebarMenuProps } from './types';
+import { MenuItem, SubMenuItem, SidebarMenuProps } from './types/types';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 const { SubMenu } = Menu;
 
+/**
+ * Renders a sub-menu with the provided sub-menu items.
+ *
+ * @param {SubMenuItem[]} subMenu - An array of sub-menu items.
+ * @param {any} t - A translation function.
+ * @return {ReactNode[]} - An array of React elements representing the rendered sub-menu.
+ */
 function renderSubMenu(subMenu: SubMenuItem[], t: any) {
   return subMenu.map((item) => {
     const { label, icon, subMenu: subSubMenu, route, external } = item;
@@ -37,6 +44,13 @@ function renderSubMenu(subMenu: SubMenuItem[], t: any) {
   });
 }
 
+/**
+ * Render a menu item component.
+ *
+ * @param {MenuItem} item - the menu item to render
+ * @param {any} t - the translation function
+ * @return {JSX.Element} the rendered menu item component
+ */
 function renderMenuItem(item: MenuItem, t: any) {
   if (item.subMenu && item.subMenu.length > 0) {
     return (
@@ -65,6 +79,12 @@ function renderMenuItem(item: MenuItem, t: any) {
   }
 }
 
+/**
+ * Renders the sidebar menu component.
+ *
+ * @param {SidebarMenuProps} menuItems - The menu items to be displayed in the sidebar.
+ * @return {ReactElement} The rendered sidebar menu component.
+ */
 const Sidebar: React.FC<SidebarMenuProps> = ({menuItems}) => {
   const { t } = useTranslation();
 

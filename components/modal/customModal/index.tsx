@@ -6,22 +6,8 @@ import { Form, DatePicker, Card, Divider, Space, Row, Col } from "antd";
 import { InputField, Button, SelectComponent } from '../../base-components';
 import moment from 'moment';
 import { validFields } from '../../../helpers/utils';
-import { ModalProps, Field, FormData } from './modalType';
-
-const customStyles = {
-  doublelines: {
-    display: 'flex',
-    width: '150%',
-    margin: '0 1%', // Espaço de 1% nas laterais
-    minWidth: '200px',
-  },
-  inline: {
-    display: 'inline-block',
-    width: '150%',
-    margin: '0',
-    minWidth: '200px',
-  },
-};
+import { ModalProps, Field, FormData } from './types/types';
+import { customStyles } from './constants/constants';
 
 export const CustomModal: React.FC<ModalProps> = ({ closeModal, onSave, fields, contentLabel, currentItem }) => {
   const { t } = useTranslation();

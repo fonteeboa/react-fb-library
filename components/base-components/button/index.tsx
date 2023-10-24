@@ -1,5 +1,5 @@
 import React from 'react'
-import { IButton } from './iButton';
+import { IButton } from './types/types';
 import { Button as ButtonAntd } from 'antd';
 
 /**

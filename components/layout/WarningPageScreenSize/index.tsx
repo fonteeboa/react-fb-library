@@ -2,6 +2,11 @@ import React from 'react';
 import { Result } from 'antd';
 import { useTranslation } from 'react-i18next';
 
+/**
+ * Renders the WarningPageScreenSize component.
+ *
+ * @return {ReactNode} The rendered component.
+ */
 const WarningPageScreenSize: React.FC = () => {
   const { t } = useTranslation();
 
