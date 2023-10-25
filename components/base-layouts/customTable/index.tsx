@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Card, Button, Menu, Dropdown, Popconfirm } from 'antd';
-import { tableStyle } from './constants/constants';
+import { Table } from 'antd';
+import { tableStyle } from './constants';
 import type { CustomTableProps } from './domain/types';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { QuestionCircleOutlined } from '@ant-design/icons';
+import HeaderPageProps from '../../layout/headerPage';
+import { Action } from '../../base-components/bulkActionsDropdown/domain';
 import { useTranslation } from 'react-i18next';
 
 /**
@@ -13,11 +12,11 @@ import { useTranslation } from 'react-i18next';
  * @param {CustomTableProps<T>} { pageTitle, dataSource, columns, title, footer, bulkAction } - The props for the custom table component.
  * @return {JSX.Element} The rendered custom table component.
  */
-const CustomTable = <T extends object>({ pageTitle,  dataSource, columns, title, footer, bulkAction }: CustomTableProps<T>) => {
-  
+const CustomTable = <T extends object>({ pageTitle,  dataSource, columns, title, footer, deleteAction, openModalAction, customOptions = [] }: CustomTableProps<T>) => {
+
   const { t } = useTranslation();
-  
-  const [menuVisible, setMenuVisible] = useState(false);
+
+  const [buttonEnabled, setButtonEnabled] = useState(true);
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
 
   const rowSelection = {
@@ -32,80 +31,33 @@ const CustomTable = <T extends object>({ pageTitle,  dataSource, columns, title,
     },
   };
 
-  /**
-   * Open the menu and set it to be visible.
-   *
-   * @return {void} No return value.
-   */
-  const openMenu = () => {
-    setMenuVisible(true);
+  const deleteAll = (e: any) => {
+    if (deleteAction)
+      deleteAction(selectedRowKeys);
   };
-
-  /**
-   * Close the menu by setting the menuVisible state to false.
-   *
-   * @return {void}
-   */
-  const closeMenu = () => {
-    setMenuVisible(false);
-  };
-
-/**
- * Handles the click event for an option.
- *
- * @param {string} option - The option that was clicked.
- * @return {void} This function does not return a value.
- */
-  const handleOptionClick = (option: string) => {
-    if (bulkAction) {
-      const selectedAction = bulkAction.find((item) => item.label === option);
-      if (selectedAction) {
-        selectedAction.action();
-      }
-    }
-    closeMenu();
-  };
-
-  const menu = (
-    <Menu onClick={({ key }) => handleOptionClick(key)}>
-    {bulkAction &&
-      bulkAction.map((item) =>
-        item.type && item.type === 'danger' ? (
-          <Popconfirm
-            title={item.confirmMessage ? item.confirmMessage : item.label}
-            onConfirm={() => handleOptionClick(item.label)} // Aqui você lida com a ação após a confirmação
-            okText={t('common.ok')} // Texto do botão de confirmação
-            cancelText={t('common.cancel')} // Texto do botão de cancelamento
-            icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
-            key={item.label}
-          >
-            <Menu.Item key={item.label}>{item.label}</Menu.Item>
-          </Popconfirm>
-        ) : (
-          <Menu.Item key={item.label}>{item.label}</Menu.Item>
-        )
-      )}
-  </Menu>
-  );
 
   useEffect(() => {
-    selectedRowKeys.length > 0 ? setButtonDisabled(false) : setButtonDisabled(true);
+    selectedRowKeys.length > 0 ? setButtonEnabled(true) : setButtonEnabled(false);
   }, [selectedRowKeys]);
 
-  const [buttonDisabled, setButtonDisabled] = useState(true);
+
+  const bulkActionOptions: Action[] = [
+    ...customOptions,
+    {
+      name: t("common.add"),
+      handler: openModalAction,
+      type: "primary",
+    },
+    {
+      name: t("common.delete.select"),
+      handler: deleteAll,
+      confirmMessage: t('common.delete.confirmation.multiple'),
+      type: "danger",
+    },
+  ];
 
   return (
-    <Card title={null} className="grid-container">
-      <div className="table-header">
-        <div className="table-title"><h3>{pageTitle}</h3></div>
-        <div className="table-actions">
-          <Dropdown overlay={menu} open={menuVisible} onOpenChange={setMenuVisible}>
-            <Button type="default" onClick={openMenu} disabled={buttonDisabled}>
-              <FontAwesomeIcon icon={faChevronDown} />
-            </Button>
-          </Dropdown>
-        </div>
-      </div>
+    <HeaderPageProps title={pageTitle} bulkActions={bulkActionOptions} activeAction={buttonEnabled}>
       <Table
         className="top1 alltables75 stayBottom"
         dataSource={dataSource}
@@ -121,7 +73,7 @@ const CustomTable = <T extends object>({ pageTitle,  dataSource, columns, title,
           ...rowSelection,
         }}
       />
-    </Card>
+    </HeaderPageProps>
   );
 };
 
