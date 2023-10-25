@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { MenuItem, SubMenuItem, SidebarMenuProps } from './domain/types';
+import { MenuItem, SubMenuItem, SidebarMenuProps } from './domain';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';

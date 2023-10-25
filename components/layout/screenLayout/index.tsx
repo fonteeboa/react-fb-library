@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../sidebar';
-import { LayoutProps } from './domain/types';
+import { LayoutProps } from './domain';
 
 /**
  * Renders the screen layout component.

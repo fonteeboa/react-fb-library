@@ -6,7 +6,7 @@ import { Form, DatePicker, Card, Divider, Space, Row, Col } from "antd";
 import { InputField, Button, SelectComponent } from '../../base-components';
 import moment from 'moment';
 import { validFields } from '../../../helpers/validFields';
-import { ModalProps, Field, FormData } from './domain/types';
+import { ModalProps, Field, FormData } from './domain';
 import { customStyles } from './constants/constants';
 
 export const CustomModal: React.FC<ModalProps> = ({ closeModal, onSave, fields, contentLabel, currentItem }) => {
