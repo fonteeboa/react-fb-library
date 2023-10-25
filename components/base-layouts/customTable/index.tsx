@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'antd';
 import { tableStyle } from './constants';
-import type { CustomTableProps } from './domain/types';
+import type { CustomTableProps } from './domain';
 import HeaderPageProps from '../../layout/headerPage';
 import { Action } from '../../base-components/bulkActionsDropdown/domain';
 import { useTranslation } from 'react-i18next';

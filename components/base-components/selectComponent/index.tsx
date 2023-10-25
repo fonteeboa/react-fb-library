@@ -1,5 +1,5 @@
 import React from 'react';
-import { IBox } from './domain/types';
+import { IBox } from './domain';
 import { Select } from 'antd';
 
 const { Option } = Select;

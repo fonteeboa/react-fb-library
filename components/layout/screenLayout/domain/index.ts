@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { MenuItem } from '../../sidebar/domain/types';
+import { MenuItem } from '../../sidebar/domain';
 
 export interface LayoutProps {
     children: ReactNode;
