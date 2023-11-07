@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
-import { RequestConfig, ServiceParams } from "./domain/type";
-import { baseConfig } from "./constants/constantsRequets";
+import { RequestConfig, ServiceParams } from "./domain";
+import { baseConfig } from "./constants";
 
 let config = baseConfig;
 

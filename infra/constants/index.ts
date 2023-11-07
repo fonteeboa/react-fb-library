@@ -1,5 +1,5 @@
 
-import { RequestConfig } from "../domain/type";
+import { RequestConfig } from "../domain";
 
 export const baseConfig: RequestConfig = {
     headers: {
