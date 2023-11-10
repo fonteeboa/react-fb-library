@@ -47,12 +47,14 @@ const CustomTable = <T extends object>({ pageTitle,  dataSource, columns, title,
       name: t("common.add"),
       handler: openModalAction,
       type: "primary",
+      activeAction: true
     },
     {
       name: t("common.delete.select"),
       handler: deleteAll,
       confirmMessage: t('common.delete.confirmation.multiple'),
       type: "danger",
+      activeAction: buttonEnabled
     },
   ];
 

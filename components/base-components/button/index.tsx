@@ -18,7 +18,7 @@ export const Button: React.FC<IButton> = ({ label, type, size, styles, onClick ,
 
     return (
         <>
-            <ButtonAntd className={[className, styles].join(' ')} onClick={onClick} type={type} {...props} data-testid={'dataTestId-' + label}>
+            <ButtonAntd key={"bttn"+label} className={[className, styles].join(' ')} onClick={onClick} type={type} {...props} data-testid={'dataTestId-' + label}>
                 {label}
             </ButtonAntd>
         </>

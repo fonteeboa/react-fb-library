@@ -8,10 +8,10 @@ const HeaderPageProps: React.FC<headerPageProps> = ({ children, title, bulkActio
         <div className="table-header">
             <div className="table-title"><h3>{title}</h3></div>
           <div className="table-actions">        
-            { bulkActions.length ? <BulkActionsDropdown actions={bulkActions} activeAction={activeAction}/> : null } 
+            { bulkActions.length ? <BulkActionsDropdown actions={bulkActions} /> : null } 
           </div> 
         </div>
-        <main className="content">{children}</main>=
+        <main className="content">{children}</main>
     </Card>
   );
 };

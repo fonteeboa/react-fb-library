@@ -18,7 +18,7 @@ import {Input} from 'antd';
  * @param {boolean} props.required - Indicates whether the input field is required.
  * @returns {React.ReactNode} - The rendered input field component.
  */
-export const InputField: React.FC<IInputField> = ({ name, type, icon, label, onChange, styles, register, mask, required, className, ...rest }) => {
+export const InputField: React.FC<IInputField> = ({ name, type, icon, label, onChange, styles, register, mask, required, className, key, ...rest }) => {
 
     /**
      * Retrieves the appropriate icon based on the provided type.
@@ -58,6 +58,8 @@ export const InputField: React.FC<IInputField> = ({ name, type, icon, label, onC
                 style={{ width: 'auto', ...styles }}  // Largura "auto" para respeitar o estilo definido em customStyles
                 className={className}
                 type={type}
+                key={key}
+                id={name}
                 name={name}
                 onChange={onChange}
                 {...register && ({ ...register(name) })}

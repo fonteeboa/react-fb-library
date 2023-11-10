@@ -4,6 +4,7 @@ export interface IInputField extends InputHTMLAttributes<HTMLInputElement> {
     name: string,
     type?: string,
     icon?: boolean,
+    key?: string,
     label?: string,
     styles?: [],
     register?: any,

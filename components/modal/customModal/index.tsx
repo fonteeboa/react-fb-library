@@ -30,12 +30,15 @@ export const CustomModal: React.FC<ModalProps> = ({ closeModal, onSave, fields, 
       isOpen={true}
       onRequestClose={closeModal}
       footer={null}
+      key="complexFormModal"
     >
       <Card 
+        key="complexFormCard"
         title={contentLabel}
       >
-        <Space align="center">
+        <Space align="center" key="complexFormSpace">
           <Form
+          key="complexFormForm"
           name="complexForm"
           className="complexForm"
           labelCol={{ span: 8 }}
@@ -48,12 +51,12 @@ export const CustomModal: React.FC<ModalProps> = ({ closeModal, onSave, fields, 
           </Form>
         </Space>
   
-        <Divider />
+        <Divider key="complexFormDivider"/>
 
         <div className="modalFooter">
-            <Button key="cancel" type="default" onClick={closeModal} className="btn btn-secondary" label={t("common.cancel")} />
-            <Button key="save" type="primary" onClick={handleSubmit} className="btn btn-primary" label={t("common.save")} />
-          </div>
+          <Button key="cancel" type="default" onClick={closeModal} className="btn btn-secondary" label={t("common.cancel")} />
+          <Button key="save" type="primary" onClick={handleSubmit} className="btn btn-primary" label={t("common.save")} />
+        </div>
         
       </Card>
     </Modal>

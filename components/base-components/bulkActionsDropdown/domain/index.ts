@@ -4,11 +4,11 @@ export interface Action {
     icon?: string;
     type?: string;
     confirmMessage?: string;
+    activeAction?: boolean;
   }
   
   
 export interface BulkActionsDropdownProps {
     actions?: Action[];
-    activeAction?: boolean;
 }
   

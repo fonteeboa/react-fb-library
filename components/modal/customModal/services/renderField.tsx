@@ -57,6 +57,7 @@ const renderField = (
           name={field.name}
           label={field.label}
           onChange={(date: any) => setFieldValues(date, field.name)}
+          key={index + field.name}
         >
           {field.optionsFunction ? field.optionsFunction() : null}
         </SelectComponent>
@@ -64,6 +65,7 @@ const renderField = (
     case 'datePicker':
       return (
         <DatePicker
+          key={index + field.name}
           style={styleField}
           data-testid={`dataTestId-${field.name}`}
           name={field.name}
@@ -79,6 +81,7 @@ const renderField = (
               data-testid={`dataTestId${field.name}`}
               checked={form.getFieldValue(field.name)}
               onChange={(checked) => setFieldValues(checked, field.name)}
+              key={index + field.name}
             />
         <p>{field.name}</p>
         </div>
@@ -92,19 +95,7 @@ const renderField = (
           data-testid={'dataTestId' + field.name}
           placeholder={field.placeholder ? field.placeholder : ''}
           onChange={(e) => setFieldValues(e.target.value, field.name)}
-          key={index}
-        />
-      );
-    case 'password': // Adicione o campo de senha
-      return (
-        <Input
-          style={styleField}
-          type="password"
-          name={field.label}
-          data-testid={'dataTestId' + field.name}
-          placeholder={field.placeholder ? field.placeholder : ''}
-          onChange={(e) => setFieldValues(e.target.value, field.name)}
-          key={index}
+          key={index + field.name}
         />
       );
     default:
@@ -117,7 +108,7 @@ const renderField = (
           data-testid={"dataTestId" + field.name}
           placeholder={field.placeholder ? field.placeholder : ''}
           onChange={(date: any ) => setFieldValues(date, field.name)}
-          key={index} // Defina uma chave única
+          key={index + field.name}
         />
       )
   }
