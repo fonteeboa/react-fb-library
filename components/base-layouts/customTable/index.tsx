@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table } from 'antd';
+import { Table, Card } from 'antd';
 import { tableStyle } from './constants';
 import type { CustomTableProps } from './domain';
 import HeaderPageProps from '../../layout/headerPage';
@@ -59,23 +59,25 @@ const CustomTable = <T extends object>({ pageTitle,  dataSource, columns, title,
   ];
 
   return (
-    <HeaderPageProps title={pageTitle} bulkActions={bulkActionOptions} activeAction={buttonEnabled}>
-      <Table
-        className="top1 alltables75 stayBottom"
-        dataSource={dataSource}
-        columns={columns}
-        size="small"
-        pagination={false}
-        style={tableStyle}
-        bordered
-        title={title}
-        footer={footer}
-        rowSelection={{
-          type: 'checkbox',
-          ...rowSelection,
-        }}
-      />
-    </HeaderPageProps>
+    <Card>
+      <HeaderPageProps title={pageTitle} bulkActions={bulkActionOptions} activeAction={buttonEnabled}>
+        <Table
+          className="top1 alltables75 stayBottom"
+          dataSource={dataSource}
+          columns={columns}
+          size="small"
+          pagination={false}
+          style={tableStyle}
+          bordered
+          title={title}
+          footer={footer}
+          rowSelection={{
+            type: 'checkbox',
+            ...rowSelection,
+          }}
+          />
+      </HeaderPageProps>
+    </Card>
   );
 };
 
