@@ -2,6 +2,7 @@ import React from 'react';
 import { User, Mail, LockClosed, } from "heroicons-react";
 import { IInputField } from './domain';
 import {Input} from 'antd';
+const { TextArea } = Input;
 
 /**
  * Generates the input field component for forms.
@@ -53,18 +54,37 @@ export const InputField: React.FC<IInputField> = ({ name, type, icon, label, onC
                 <span>{label}{required && <label className="text-red-600 text-sm after:content-['_*']"></label>}</span>
             </label>
             {icon === true && <i className="absolute p-1.5"> {Icons} </i>}
-            <Input
-                data-testid={'dataTestId-' + name}
-                style={{ width: 'auto', ...styles }}  // Largura "auto" para respeitar o estilo definido em customStyles
-                className={className}
-                type={type}
-                key={key}
-                id={name}
-                name={name}
-                onChange={onChange}
-                {...register && ({ ...register(name) })}
-                {...rest}
-            />
+            { type === 'area' ? 
+                <TextArea 
+                    rows={4} 
+                    placeholder={name}
+                    data-testid={'dataTestId-' + name}
+                    style={{ height: 120, resize: 'none', width: 'auto', ...styles }}
+                    className={className}
+                    type={type}
+                    key={key}
+                    id={name}
+                    name={name}
+                    maxLength={200}
+                    onChange={onChange}
+                    {...register && ({ ...register(name) })}
+                    {...rest}
+                    showCount
+                />
+                :
+                <Input
+                    data-testid={'dataTestId-' + name}
+                    style={{ width: 'auto', ...styles }}
+                    className={className}
+                    type={type}
+                    key={key}
+                    id={name}
+                    name={name}
+                    onChange={onChange}
+                    {...register && ({ ...register(name) })}
+                    {...rest}
+                />
+            }
         </div>
     )
 }

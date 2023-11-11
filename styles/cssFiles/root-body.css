@@ -5,6 +5,10 @@ body, #root, #rootScreenSize {
   width: 100%;
 }
 
+.layout {
+  background-color: rgb(244, 244, 244);
+}
+
 /*  Estilos especificos para a tela quando o tamanho for menor que 800px. */
 @media screen and (max-height: 800px), (max-width: 800px) {
     .ant-table {
