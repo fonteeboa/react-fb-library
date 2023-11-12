@@ -10,4 +10,5 @@ export interface CustomTableProps<T> {
   deleteAction?: (selectedRowKeys: React.Key[]) => void;
   openModalAction?: () => void;
   customOptions?: Action[]; 
+  rowSelectionBoolean?: boolean;
 }

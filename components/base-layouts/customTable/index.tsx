@@ -12,14 +12,14 @@ import { useTranslation } from 'react-i18next';
  * @param {CustomTableProps<T>} { pageTitle, dataSource, columns, title, footer, bulkAction } - The props for the custom table component.
  * @return {JSX.Element} The rendered custom table component.
  */
-const CustomTable = <T extends object>({ pageTitle,  dataSource, columns, title, footer, deleteAction, openModalAction, customOptions = [] }: CustomTableProps<T>) => {
+const CustomTable = <T extends object>({ pageTitle,  dataSource, columns, title, footer, deleteAction, openModalAction, customOptions = [], rowSelectionBoolean = false }: CustomTableProps<T>) => {
 
   const { t } = useTranslation();
 
   const [buttonEnabled, setButtonEnabled] = useState(true);
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
 
-  const rowSelection = {
+  const rowSelectionFunction = {
     /**
      * Handles the onChange event of the component.
      *
@@ -58,6 +58,11 @@ const CustomTable = <T extends object>({ pageTitle,  dataSource, columns, title,
     },
   ];
 
+  const rowSelection: any = {
+    type: 'checkbox',
+    ...rowSelectionFunction,
+  }
+
   return (
     <Card>
       <HeaderPageProps title={pageTitle} bulkActions={bulkActionOptions} activeAction={buttonEnabled}>
@@ -71,10 +76,7 @@ const CustomTable = <T extends object>({ pageTitle,  dataSource, columns, title,
           bordered
           title={title}
           footer={footer}
-          rowSelection={{
-            type: 'checkbox',
-            ...rowSelection,
-          }}
+          rowSelection={ rowSelectionBoolean ? rowSelection : null }
           />
       </HeaderPageProps>
     </Card>

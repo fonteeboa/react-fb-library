@@ -60,6 +60,7 @@ const pt_BR = {
   "common.authorization.settings" : "Configuração de Autorização",
   "common.integration.settings" : "Configuração de Integração",
   "common.description": "Descrição",
+  "common.required.field": "Este campo é obrigatório",
   
 }
 
