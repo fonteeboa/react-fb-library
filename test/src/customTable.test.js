@@ -1,7 +1,7 @@
 import React from 'react';
 import matchMedia from 'match-media-mock';
 import { render, fireEvent, screen } from '@testing-library/react';
-import CustomTable from '../../components/base-layouts/customTable';
+import CustomTable from '../../components/base-layouts/customTable/customTable';
 
 import { dataSource, columns, bulkAction } from '../mock/customTable';
 // Mock the window.matchMedia function
