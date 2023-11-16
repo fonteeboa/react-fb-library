@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from '../sidebar/sidebar';
+import Sidebar from '../sidebar';
 import { LayoutProps } from './types';
 
 /**

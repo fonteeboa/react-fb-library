@@ -1,5 +1,5 @@
 import React from 'react';
-import { SelectComponent, InputField } from '../../../base-components'; // Importe o componente Switch
+import { SelectComponent, InputField } from '../../../baseComponents'; // Importe o componente Switch
 import { FormInstance } from 'antd/lib/form';
 import moment from 'moment';
 import { Field } from '../types';
