@@ -1,6 +1,6 @@
 import React from 'react';
 import { headerPageProps } from './types';
-import BulkActionsDropdown from '../../baseComponents/bulkActionsDropdown/bulkActionsDropdown';
+import BulkActionsDropdown from '../../baseComponents/bulkActionsDropdown';
 const HeaderPageProps: React.FC<headerPageProps> = ({ children, title, bulkActions = [], activeAction = true }) => {
   return (
     <>

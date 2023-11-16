@@ -4,7 +4,7 @@ import { Bar, Line, Pie, Doughnut, Radar, PolarArea, Bubble, Scatter } from 'rea
 import { ChartData, ChartGridProps, ChartOptions } from './types';
 import { options as defaultOptions } from './constants';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend, BarElement, ArcElement, BarController, LineController, CategoryScale as CategoryScaleController, RadialLinearScale } from 'chart.js';
-import HeaderPageProps from '../../layout/headerPage/headerPage';
+import HeaderPageProps from '../../layout/headerPage';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend, ArcElement, BarController, BarElement, LineController, CategoryScaleController, RadialLinearScale, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 

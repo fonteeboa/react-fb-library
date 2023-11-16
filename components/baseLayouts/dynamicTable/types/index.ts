@@ -1,7 +1,7 @@
 import type { ColumnsType } from 'antd/es/table';
 import { Action } from '../../../baseComponents/bulkActionsDropdown/types';
 
-export interface CustomTableProps<T> {
+export interface DynamicTableProps<T> {
   dataSource: T[];
   columns: ColumnsType<T>;
   title?: (() => React.ReactNode);

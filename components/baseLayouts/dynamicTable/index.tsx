@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Card } from 'antd';
 import { tableStyle } from './constants';
-import type { CustomTableProps } from './types';
-import HeaderPageProps from '../../layout/headerPage/headerPage';
+import type { DynamicTableProps } from './types';
+import HeaderPageProps from '../../layout/headerPage';
 import { Action } from '../../baseComponents/bulkActionsDropdown/types';
 import { useTranslation } from 'react-i18next';
 
 /**
  * Render a custom table component.
  *
- * @param {CustomTableProps<T>} { pageTitle, dataSource, columns, title, footer, bulkAction } - The props for the custom table component.
+ * @param {DynamicTableProps<T>} { pageTitle, dataSource, columns, title, footer, bulkAction } - The props for the custom table component.
  * @return {JSX.Element} The rendered custom table component.
  */
-const CustomTable = <T extends object>({ pageTitle,  dataSource, columns, title, footer, deleteAction, openModalAction, customOptions = [], rowSelectionBoolean = false }: CustomTableProps<T>) => {
+const DynamicTable = <T extends object>({ pageTitle,  dataSource, columns, title, footer, deleteAction, openModalAction, customOptions = [], rowSelectionBoolean = false }: DynamicTableProps<T>) => {
 
   const { t } = useTranslation();
 
@@ -83,4 +83,4 @@ const CustomTable = <T extends object>({ pageTitle,  dataSource, columns, title,
   );
 };
 
-export default CustomTable;
+export default DynamicTable;
