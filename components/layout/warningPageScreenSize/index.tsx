@@ -8,16 +8,16 @@ import { useTranslation } from 'react-i18next';
  * @return {ReactNode} The rendered component.
  */
 const WarningPageScreenSize: React.FC = () => {
-  const { t } = useTranslation();
+   const { t } = useTranslation();
 
-  return (
-    <Result
-    className='centered-content'
-    status="warning"
-    title={t('warningPage.title')}
-    subTitle={t('warningPage.subTitle')}
-  />
-  );
+   return (
+      <Result
+         className='centered-content'
+         status="warning"
+         title={t('warningPage.title')}
+         subTitle={t('warningPage.subTitle')}
+      />
+   );
 };
 
 export default WarningPageScreenSize;

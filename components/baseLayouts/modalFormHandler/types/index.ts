@@ -15,7 +15,7 @@ export type Field = {
   
 export type ModalProps = {
   closeModal: (form: any) => void;
-  onSave: (data: FormInstance<FormData>) => void;
+  onSave: (data: any) => void;
   fields: Field[];
   contentLabel: string;
   currentItem?: any;

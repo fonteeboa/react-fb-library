@@ -1,4 +1,4 @@
 export const tableStyle = {
-    width: '100%',
-    fontSize: '12px'
+   width: '100%',
+   fontSize: '12px'
 };

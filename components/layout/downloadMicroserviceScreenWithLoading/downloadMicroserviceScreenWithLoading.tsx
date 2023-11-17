@@ -10,54 +10,54 @@ import { Blocks } from "react-loader-spinner";
  * @return {void} no return value
  */
 const DownloadMicroserviceScreenWithLoading: React.FC<DownloadMicroserviceScreenWithLoadingProps> = ({
-  microserviceName,
-  downloadUrl,
-  loading
+   microserviceName,
+   downloadUrl,
+   loading
 }) => {
-  const { t } = useTranslation();
+   const { t } = useTranslation();
 
-  /**
+   /**
    * Reloads the current page.
    *
    * @param {none} none - no parameters required
    * @return {void} no return value
    */
-  const handleReload = () => {
-    window.location.reload();
-  };
+   const handleReload = () => {
+      window.location.reload();
+   };
 
-  return (
-    <div className='centered-content'>
-      { loading ? 
-        <Blocks
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="blocks-loading"
-          wrapperStyle={{}}
-          wrapperClass="blocks-wrapper"
-        />
-      :
-        <Result
-          status="warning"
-          title={t("common.unavaible")}
-          subTitle={t("module.notfound", { moduleName: microserviceName })}
-          extra={
-            downloadUrl !== '' && (
-            <>
-            <p>{t('module.info.download')}</p>
-              <Button type="primary" href={downloadUrl} target="_blank" rel="noopener noreferrer">
-                {t('module.download')}
-              </Button>
-              <Button type="default" onClick={handleReload}>
-                {t('common.reload.page')}
-              </Button>
-            </>
-          )}
-        />
-      }
-    </div>
-  );
+   return (
+      <div className='centered-content'>
+         { loading ? 
+            <Blocks
+               visible={true}
+               height="80"
+               width="80"
+               ariaLabel="blocks-loading"
+               wrapperStyle={{}}
+               wrapperClass="blocks-wrapper"
+            />
+            :
+            <Result
+               status="warning"
+               title={t("common.unavaible")}
+               subTitle={t("module.notfound", { moduleName: microserviceName })}
+               extra={
+                  downloadUrl !== '' && (
+                     <>
+                        <p>{t('module.info.download')}</p>
+                        <Button type="primary" href={downloadUrl} target="_blank" rel="noopener noreferrer">
+                           {t('module.download')}
+                        </Button>
+                        <Button type="default" onClick={handleReload}>
+                           {t('common.reload.page')}
+                        </Button>
+                     </>
+                  )}
+            />
+         }
+      </div>
+   );
 };
 
 export default DownloadMicroserviceScreenWithLoading;

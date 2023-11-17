@@ -2,8 +2,8 @@
 import { RequestConfig } from "../domain";
 
 export const baseConfig: RequestConfig = {
-    headers: {
+   headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
-    }
-  };
+   }
+};

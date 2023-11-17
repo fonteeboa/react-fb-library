@@ -9,12 +9,12 @@ import { LayoutProps } from './types';
  * @return {React.ReactNode} The rendered screen layout component.
  */
 const ScreenLayout: React.FC<LayoutProps> = ({ children, menuItems }) => {
-  return (
-    <div className="layout">
-      <Sidebar menuItems={menuItems} />
-      <main className="content">{children}</main>
-    </div>
-  );
+   return (
+      <div className="layout">
+         <Sidebar menuItems={menuItems} />
+         <main className="content">{children}</main>
+      </div>
+   );
 };
 
 export default ScreenLayout;

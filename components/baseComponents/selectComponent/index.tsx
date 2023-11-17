@@ -16,22 +16,22 @@ import { Select } from 'antd';
  * @return {ReactNode} The rendered select component.
  */
 export const SelectComponent: React.FC<IBox> = ({ name, value, label, onChange, register, renderOptions, key, ...rest }) => {
-  return (
-    <>
-      <label className="block capitalize tracking-wide text-gray-700 text-xs font-normal mb-2" htmlFor={name}><span>{label}</span></label>
-      <Select
-        data-testid={'dataTestId-' + name}
-        name={name}
-        key={key}
-        id={key}
-        value={value}
-        onChange={onChange}
-        {...register && ({ ...register(name) })}
-        {...rest}
-        className="w-full"
-      >
-        {renderOptions && renderOptions()}
-      </Select>
-    </>
-  );
+   return (
+      <>
+         <label className="block capitalize tracking-wide text-gray-700 text-xs font-normal mb-2" htmlFor={name}><span>{label}</span></label>
+         <Select
+            data-testid={'dataTestId-' + name}
+            name={name}
+            key={key}
+            id={key}
+            value={value}
+            onChange={onChange}
+            {...register && ({ ...register(name) })}
+            {...rest}
+            className="w-full"
+         >
+            {renderOptions && renderOptions()}
+         </Select>
+      </>
+   );
 }

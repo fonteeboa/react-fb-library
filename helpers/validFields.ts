@@ -8,24 +8,24 @@ import moment from 'moment';
  * @return {any} - The validated value or false if validation fails.
  */
 export const validFields = (value: any, type: string): any => {
-  switch (type) {
-    case 'date':
-    case 'scheduled':
+   switch (type) {
+   case 'date':
+   case 'scheduled':
       return moment(value).isValid() ? moment(value) : false;
-    case 'string':
+   case 'string':
       return typeof value === 'string' ? value : false;
-    case 'number':
+   case 'number':
       return !isNaN(value) ? Number(value) : false;
-    case 'boolean':
+   case 'boolean':
       return typeof value === 'boolean' ? value : false;
-    case 'array':
+   case 'array':
       return Array.isArray(value) ? value : false;
-    case 'object':
+   case 'object':
       return typeof value === 'object' && value !== null ? value : false;
-    case 'email':
+   case 'email':
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(value) ? value : false;
-    default:
+   default:
       return value;
-  }
+   }
 };

@@ -15,17 +15,17 @@ let config = baseConfig;
  * @returns {Promise<T>} A promise that resolves with the service data.
  */
 export const getService = async <T>(params: ServiceParams): Promise<T> => {
-  const { baseUrl, route = '', body = {}, authToken = false } = params;
-  if (authToken) {
-    config = await setTokenAuth(config);
-  }
-  const url = baseUrl + route;
-  return axios.get(url, { ...config, params: body }).then((response: AxiosResponse<T>) => {
-    return response.data;
-  }).catch(error => {
-    console.log(error);
-    return [] as T;
-  });
+   const { baseUrl, route = '', body = {}, authToken = false } = params;
+   if (authToken) {
+      config = await setTokenAuth(config);
+   }
+   const url = baseUrl + route;
+   return axios.get(url, { ...config, params: body }).then((response: AxiosResponse<T>) => {
+      return response.data;
+   }).catch(error => {
+      console.log(error);
+      return [] as T;
+   });
 };
 
 /**
@@ -39,17 +39,17 @@ export const getService = async <T>(params: ServiceParams): Promise<T> => {
  * @return {Promise<T | boolean>} - A promise that resolves to the response data or false if there's an error.
  */
 export const postService = async <T> (params: ServiceParams): Promise<T | boolean> => {
-    const { baseUrl, route = '', body = {}, authToken = false } = params;
-  if (authToken) {
-    config = await setTokenAuth(config);
-  }
-  const url = baseUrl + route;
-  return axios.post(url, body, config).then((response: AxiosResponse<T>) => {
-    return response.data;
-  }).catch(error => {
-    console.log(error);
-    return false;
-  });
+   const { baseUrl, route = '', body = {}, authToken = false } = params;
+   if (authToken) {
+      config = await setTokenAuth(config);
+   }
+   const url = baseUrl + route;
+   return axios.post(url, body, config).then((response: AxiosResponse<T>) => {
+      return response.data;
+   }).catch(error => {
+      console.log(error);
+      return false;
+   });
 };
 
 
@@ -60,17 +60,17 @@ export const postService = async <T> (params: ServiceParams): Promise<T | boolea
  * @returns {Promise<T | boolean>} The response data or false if an error occurs.
  */
 export const putService = async <T>(params: ServiceParams): Promise<T | boolean> => {
-  const { baseUrl, route = '', body = {}, authToken = false } = params;
-  if (authToken) {
-    config = await setTokenAuth(config);
-  }
-  const url = baseUrl + route;
-  return axios.put(url, body, config).then((response: AxiosResponse<T>) => {
-    return response.data;
-  }).catch(error => {
-    console.log(error);
-    return false;
-  });
+   const { baseUrl, route = '', body = {}, authToken = false } = params;
+   if (authToken) {
+      config = await setTokenAuth(config);
+   }
+   const url = baseUrl + route;
+   return axios.put(url, body, config).then((response: AxiosResponse<T>) => {
+      return response.data;
+   }).catch(error => {
+      console.log(error);
+      return false;
+   });
 };
 
 
@@ -84,40 +84,40 @@ export const putService = async <T>(params: ServiceParams): Promise<T | boolean>
  * @return {Promise<T | boolean>} A promise that resolves to the deleted data or a boolean indicating success.
  */
 export const deleteService = async <T>(params: ServiceParams): Promise<T | boolean> => {
-  const { baseUrl = '', route = '', authToken = false } = params;
-  if (authToken) {
-    config = await setTokenAuth(config);
-  }
-  if (params.body) {
-    config = { ...config, body: params.body }
-  }
-  const url = baseUrl + route;
-  return axios.delete(url, config).then((response: AxiosResponse<T>) => {
-    return response.data;
-  }).catch(error => {
-    console.log(error);
-    return false;
-  });
-}
-export const deleteWithBodyService = async <T>(params: ServiceParams): Promise<T | boolean> => {
-  const { baseUrl = '', route = '' } = params;
-  const url = baseUrl + route;
-
-  let axiosRequestConfig: AxiosRequestConfig = {
-    method: 'delete',
-    url: url,
-    headers: params.headers as { 'Content-Type': string; Accept: string; Authorization?: string }, // Ajuste de tipo para os cabeçalhos
-    data: params.body, // Utilize 'data' para o corpo da requisição
-  };
-
-  return axios(axiosRequestConfig)
-    .then((response: AxiosResponse<T>) => {
+   const { baseUrl = '', route = '', authToken = false } = params;
+   if (authToken) {
+      config = await setTokenAuth(config);
+   }
+   if (params.body) {
+      config = { ...config, body: params.body }
+   }
+   const url = baseUrl + route;
+   return axios.delete(url, config).then((response: AxiosResponse<T>) => {
       return response.data;
-    })
-    .catch(error => {
+   }).catch(error => {
       console.log(error);
       return false;
-    });
+   });
+}
+export const deleteWithBodyService = async <T>(params: ServiceParams): Promise<T | boolean> => {
+   const { baseUrl = '', route = '' } = params;
+   const url = baseUrl + route;
+
+   const axiosRequestConfig: AxiosRequestConfig = {
+      method: 'delete',
+      url: url,
+      headers: params.headers as { 'Content-Type': string; Accept: string; Authorization?: string }, // Ajuste de tipo para os cabeçalhos
+      data: params.body, // Utilize 'data' para o corpo da requisição
+   };
+
+   return axios(axiosRequestConfig)
+      .then((response: AxiosResponse<T>) => {
+         return response.data;
+      })
+      .catch(error => {
+         console.log(error);
+         return false;
+      });
 }
 
 /**
@@ -127,14 +127,14 @@ export const deleteWithBodyService = async <T>(params: ServiceParams): Promise<T
  * @return {Promise<boolean>} - Returns a boolean indicating if the GET request was successful.
  */
 export const checkGetRequest = async (params: ServiceParams): Promise<boolean> => {
-  const { baseUrl, route = '' } = params;
-  try {
-    const response = await axios.get(baseUrl + route);
-    return response.status === 200;
-  } catch (error) {
-    console.error("Erro na solicitação GET:", error);
-    return false;
-  }
+   const { baseUrl, route = '' } = params;
+   try {
+      const response = await axios.get(baseUrl + route);
+      return response.status === 200;
+   } catch (error) {
+      console.error("Erro na solicitação GET:", error);
+      return false;
+   }
 };
 
 /**
@@ -144,9 +144,9 @@ export const checkGetRequest = async (params: ServiceParams): Promise<boolean> =
  * @return {Promise<RequestConfig>} The modified request configuration with the authentication token set, if available.
  */
 const setTokenAuth = async (config: RequestConfig): Promise<RequestConfig> => {
-  const authToken = await sessionStorage.getItem('authToken');
-  if (authToken) {
-    config.headers['Authorization'] = 'Bearer ' + authToken;
-  }
-  return config;
+   const authToken = await sessionStorage.getItem('authToken');
+   if (authToken) {
+      config.headers['Authorization'] = 'Bearer ' + authToken;
+   }
+   return config;
 }

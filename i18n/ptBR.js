@@ -1,4 +1,4 @@
-const pt_BR = {
+const ptBR = {
   "commom.confirm.delete": "Tem certeza de que deseja excluir?",
   "common.accept": "Aceitar",
   "common.access.control": "Controle de Acesso",
@@ -535,4 +535,4 @@ const pt_BR = {
 
 }
 
-export default pt_BR;
+export default ptBR;

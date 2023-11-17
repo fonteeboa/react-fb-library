@@ -9,56 +9,56 @@ import { renderfields } from './services/renderField';
 import { setCurrentItemValues, handleFormSubmit, setFieldValues as setFieldValuesService } from './services/modalService';
 
 export const ModalFormHandler: React.FC<ModalProps> = ({ closeModal, onSave, fields, contentLabel, currentItem }) => {
-  const { t } = useTranslation();
-  const [form] = Form.useForm<FormInstance<FormData>>();
+   const { t } = useTranslation();
+   const [form] = Form.useForm<any>();
 
-  useEffect(() => {
-    setCurrentItemValues(form, currentItem);
-  }, [form, currentItem]);
+   useEffect(() => {
+      setCurrentItemValues(form, currentItem);
+   }, [form, currentItem]);
   
-  const handleSubmit = async (e: any): Promise<void> => {
-    handleFormSubmit(form, onSave);
-  };
+   const handleSubmit = async (e: any): Promise<void> => {
+      handleFormSubmit(form, onSave);
+   };
   
-  const setFieldValues = (e: any, fieldName: string): void => {
-    setFieldValuesService(form, e, fieldName);
-  };
+   const setFieldValues = (e: any, fieldName: string): void => {
+      setFieldValuesService(form, e, fieldName);
+   };
 
-  return (
-    <Modal
-      className="customModal"
-      isOpen={true}
-      onRequestClose={closeModal}
-      footer={null}
-      key="complexFormModal"
-    >
-      <Card 
-        key="complexFormCard"
-        title={contentLabel}
+   return (
+      <Modal
+         className="customModal"
+         isOpen={true}
+         onRequestClose={closeModal}
+         footer={null}
+         key="complexFormModal"
       >
-        <Space align="center" key="complexFormSpace">
-          <Form
-          key="complexFormForm"
-          name="complexForm"
-          className="complexForm"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
-          style={{ maxWidth: 600 }}
-          form={form}
-          onFinish={handleSubmit}
-          >
-            {fields.map((field, index) => renderfields(field, index, form, setFieldValues))}
-          </Form>
-        </Space>
+         <Card 
+            key="complexFormCard"
+            title={contentLabel}
+         >
+            <Space align="center" key="complexFormSpace">
+               <Form
+                  key="complexFormForm"
+                  name="complexForm"
+                  className="complexForm"
+                  labelCol={{ span: 8 }}
+                  wrapperCol={{ span: 16 }}
+                  style={{ maxWidth: 600 }}
+                  form={form}
+                  onFinish={handleSubmit}
+               >
+                  {fields.map((field, index) => renderfields(field, index, form, setFieldValues))}
+               </Form>
+            </Space>
   
-        <Divider key="complexFormDivider"/>
+            <Divider key="complexFormDivider"/>
 
-        <div className="modalFooter">
-          <Button key="cancel" type="default" onClick={closeModal} className="btn btn-secondary" label={t("common.cancel")} />
-          <Button key="save" type="primary" onClick={handleSubmit} className="btn btn-primary" label={t("common.save")} />
-        </div>
+            <div className="modalFooter">
+               <Button key="cancel" type="default" onClick={closeModal} className="btn btn-secondary" label={t("common.cancel")} />
+               <Button key="save" type="primary" onClick={handleSubmit} className="btn btn-primary" label={t("common.save")} />
+            </div>
         
-      </Card>
-    </Modal>
-  );
+         </Card>
+      </Modal>
+   );
 };
