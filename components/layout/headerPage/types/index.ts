@@ -4,6 +4,6 @@ import { Action } from '../../../baseComponents/bulkActionsDropdown/types'; // C
 export type headerPageProps = {
     children: ReactNode;
     title?: string;
-    bulkActions?: Action[]; 
-    activeAction?: boolean;
+    bulkActions?: Action[];
+    showBulkActionOptions?: boolean;
 }

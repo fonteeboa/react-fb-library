@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosResponse, AxiosRequestConfig } from "axios";
 import { RequestConfig, ServiceParams } from "./domain";
 import { baseConfig } from "./constants";
 
@@ -88,6 +88,9 @@ export const deleteService = async <T>(params: ServiceParams): Promise<T | boole
   if (authToken) {
     config = await setTokenAuth(config);
   }
+  if (params.body) {
+    config = { ...config, body: params.body }
+  }
   const url = baseUrl + route;
   return axios.delete(url, config).then((response: AxiosResponse<T>) => {
     return response.data;
@@ -95,6 +98,26 @@ export const deleteService = async <T>(params: ServiceParams): Promise<T | boole
     console.log(error);
     return false;
   });
+}
+export const deleteWithBodyService = async <T>(params: ServiceParams): Promise<T | boolean> => {
+  const { baseUrl = '', route = '' } = params;
+  const url = baseUrl + route;
+
+  let axiosRequestConfig: AxiosRequestConfig = {
+    method: 'delete',
+    url: url,
+    headers: params.headers as { 'Content-Type': string; Accept: string; Authorization?: string }, // Ajuste de tipo para os cabeçalhos
+    data: params.body, // Utilize 'data' para o corpo da requisição
+  };
+
+  return axios(axiosRequestConfig)
+    .then((response: AxiosResponse<T>) => {
+      return response.data;
+    })
+    .catch(error => {
+      console.log(error);
+      return false;
+    });
 }
 
 /**

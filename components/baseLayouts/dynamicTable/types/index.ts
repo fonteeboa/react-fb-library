@@ -7,8 +7,9 @@ export interface DynamicTableProps<T> {
   title?: (() => React.ReactNode);
   footer?: (() => React.ReactNode);
   pageTitle?: string;
-  deleteAction?: (selectedRowKeys: React.Key[]) => void;
+  deleteAction?: (selectedRowKeys: T[]) => void;
   openModalAction?: () => void;
   customOptions?: Action[]; 
   rowSelectionBoolean?: boolean;
+  showBulkActionOptions?: boolean;
 }

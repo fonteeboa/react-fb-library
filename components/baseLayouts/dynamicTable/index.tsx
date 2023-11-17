@@ -12,12 +12,12 @@ import { useTranslation } from 'react-i18next';
  * @param {DynamicTableProps<T>} { pageTitle, dataSource, columns, title, footer, bulkAction } - The props for the custom table component.
  * @return {JSX.Element} The rendered custom table component.
  */
-const DynamicTable = <T extends object>({ pageTitle,  dataSource, columns, title, footer, deleteAction, openModalAction, customOptions = [], rowSelectionBoolean = false }: DynamicTableProps<T>) => {
+const DynamicTable = <T extends object>({ pageTitle,  dataSource, columns, title, footer, deleteAction, openModalAction, customOptions = [], rowSelectionBoolean = false, showBulkActionOptions = true }: DynamicTableProps<T>) => {
 
   const { t } = useTranslation();
 
   const [buttonEnabled, setButtonEnabled] = useState(true);
-  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+  const [selectedRowKeys, setSelectedRowKeys] = useState<T[]>([]);
 
   const rowSelectionFunction = {
     /**
@@ -27,7 +27,7 @@ const DynamicTable = <T extends object>({ pageTitle,  dataSource, columns, title
      * @param {T[]} selectedRows - The selected rows.
      */
     onChange: (keys: React.Key[], selectedRows: T[]) => {
-      setSelectedRowKeys(keys);
+      setSelectedRowKeys(selectedRows);
     },
   };
 
@@ -65,7 +65,7 @@ const DynamicTable = <T extends object>({ pageTitle,  dataSource, columns, title
 
   return (
     <Card>
-      <HeaderPageProps title={pageTitle} bulkActions={bulkActionOptions} activeAction={buttonEnabled}>
+      <HeaderPageProps title={pageTitle} bulkActions={bulkActionOptions} showBulkActionOptions={showBulkActionOptions}>
         <Table
           className="top1 alltables75 stayBottom"
           dataSource={dataSource}
