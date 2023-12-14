@@ -14,7 +14,7 @@ type TabContents = {
   [key: number] : TabContent
 }
 
-export interface multiModalFormHandlerProps {
+export interface MultiModalFormHandlerProps {
   dynamicModals: TabContent[];
   pageTitle?: string;
   handleSaveData: (data: FormInstance<FormData>) => void;

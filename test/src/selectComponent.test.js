@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import {SelectComponent} from '../../components/base-components';
 import { selectComponentProps } from '../mock/selectComponent';
 

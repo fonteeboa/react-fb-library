@@ -3,8 +3,7 @@ import { SelectComponent, InputField } from '../components/baseComponents'; // I
 import { FormInstance } from 'antd/lib/form';
 import moment from 'moment';
 import { Field } from '../components/baseLayouts/modalFormHandler/types';
-import { DatePicker, Switch, Input } from 'antd';
-import { Form, Row, Col } from "antd";
+import { Form, Row, Col,DatePicker, Switch, Input } from 'antd';
 import dayjs from 'dayjs';
 import { customStyles } from '../components/baseLayouts/modalFormHandler/constants/constants';
 

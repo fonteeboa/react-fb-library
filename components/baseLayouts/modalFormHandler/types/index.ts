@@ -1,6 +1,3 @@
-
-import { FormInstance } from "antd/lib/form";
-  
 export type Field = {
   name: string;
   label?: string;
