@@ -1,12 +1,12 @@
 import React from 'react';
-import { SelectComponent, InputField } from '../../../baseComponents'; // Importe o componente Switch
+import { SelectComponent, InputField } from '../components/baseComponents'; // Importe o componente Switch
 import { FormInstance } from 'antd/lib/form';
 import moment from 'moment';
-import { Field } from '../types';
+import { Field } from '../components/baseLayouts/modalFormHandler/types';
 import { DatePicker, Switch, Input } from 'antd';
 import { Form, Row, Col } from "antd";
 import dayjs from 'dayjs';
-import { customStyles } from '../constants/constants';
+import { customStyles } from '../components/baseLayouts/modalFormHandler/constants/constants';
 
 
 export const renderfields = (field: Field, index: number, form: FormInstance, setFieldValues: (value: any, fieldName: string) => void) => {

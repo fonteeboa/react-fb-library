@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Modal, Button, Tabs, Card, Form } from 'antd';
 import { FormInstance } from "antd/lib/form";
-import { renderfields } from './services/renderField';
+import { renderfields } from '../../../utils/renderField';
 import { multiModalFormHandlerProps, TabContent } from './types';
 const { TabPane } = Tabs;
 
