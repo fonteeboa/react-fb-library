@@ -1,11 +1,11 @@
 import Modal from 'react-modal';
 import React, { useEffect } from "react";
-import { Button } from '../../baseComponents';
+import { Button } from '../../../baseComponents';
 import { useTranslation } from 'react-i18next';
-import { ModalProps } from './types';
+import { ModalProps } from '../types';
 import { Form, Card, Divider, Space } from "antd";
-import { renderfields } from '../../../utils/renderField';
-import { setCurrentItemValues, handleFormSubmit, setFieldValues as setFieldValuesService } from './services/modalService';
+import { renderfields } from '../../../../utils/renderField';
+import { setCurrentItemValues, handleFormSubmit, setFieldValues as setFieldValuesService } from '../services/modalService';
 
 export const ModalFormHandler: React.FC<ModalProps> = ({ closeModal, onSave, fields, contentLabel, currentItem }) => {
    const { t } = useTranslation();

@@ -2,10 +2,10 @@ import React from 'react';
 import { SelectComponent, InputField } from '../components/baseComponents'; // Importe o componente Switch
 import { FormInstance } from 'antd/lib/form';
 import moment from 'moment';
-import { Field } from '../components/baseLayouts/modalFormHandler/types';
+import { Field } from '../components/baseLayouts/modals/types';
 import { Form, Row, Col,DatePicker, Switch, Input } from 'antd';
 import dayjs from 'dayjs';
-import { customStyles } from '../components/baseLayouts/modalFormHandler/constants/constants';
+import { customStyles } from '../components/baseLayouts/modals/constants/constants';
 
 
 export const renderfields = (field: Field, index: number, form: FormInstance, setFieldValues: (value: any, fieldName: string) => void) => {
@@ -16,7 +16,7 @@ export const renderfields = (field: Field, index: number, form: FormInstance, se
    if (field.doublelines) {
       return (
          <Row gutter={16}>
-            {field.doublelines.map((field, index2) => {
+            {field.doublelines.map((field: Field, index2: number) => {
                return (
                   <Col span={12}>
                      <Form.Item

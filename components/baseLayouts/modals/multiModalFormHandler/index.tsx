@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { Modal, Button, Tabs, Card, Form } from 'antd';
 import { FormInstance } from "antd/lib/form";
-import { renderfields } from '../../../utils/renderField';
-import { MultiModalFormHandlerProps, TabContent } from './types';
+import { renderfields } from '../../../../utils/renderField';
+import { MultiModalFormHandlerProps, TabContent } from '../types';
 const { TabPane } = Tabs;
 
 export const MultiModalFormHandler: React.FC<MultiModalFormHandlerProps> = ({ dynamicModals = [], pageTitle, handleSaveData, closeModal, }) => {
@@ -18,7 +18,7 @@ export const MultiModalFormHandler: React.FC<MultiModalFormHandlerProps> = ({ dy
       console.log(value, fieldName);
    }
 
-   const FormContent = (key: string, tabsContent: TabContent ) => {
+   const FormContent = (tabsContent: TabContent ) => {
       const fields = tabsContent.fields;
       return (<div> 
          {fields.map((field : any, index: any) => renderfields(field, index, form, setFieldValues))}
@@ -51,7 +51,7 @@ export const MultiModalFormHandler: React.FC<MultiModalFormHandlerProps> = ({ dy
                <Tabs activeKey={activeTab} onChange={handleTabChange} tabPosition="left">
                   {dynamicModals.map((tabsContent : TabContent, index: number) => (
                      <TabPane tab={tabsContent.name} key={String(index + 1)}>
-                        {FormContent(String(index + 1), tabsContent )}
+                        {FormContent(tabsContent )}
                      </TabPane>
                   ))}
                </Tabs>

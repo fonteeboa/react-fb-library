@@ -1,6 +1,5 @@
 
 import { FormInstance } from "antd/lib/form";
-import { FormData } from '../../modalFormHandler/types';
 
 export type TabContent = {
   fields: Field[];
@@ -10,9 +9,13 @@ export type TabContent = {
 
 }
 
-type TabContents = {
+export type TabContents = {
   [key: number] : TabContent
 }
+
+export type FormData = {
+  [key: string]: string;
+};
 
 export interface MultiModalFormHandlerProps {
   dynamicModals: TabContent[];
@@ -30,5 +33,13 @@ export type Field = {
   doublelines?: Field[];
   rules?: any[];
   required?: boolean;
+};
+    
+export type ModalProps = {
+  closeModal: (form: any) => void;
+  onSave: (data: any) => void;
+  fields: Field[];
+  contentLabel: string;
+  currentItem?: any;
 };
   
