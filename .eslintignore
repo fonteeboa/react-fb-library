@@ -1,7 +1,5 @@
 node_modules/
-src/common
 jest.config.ts
 setupTests.ts
 babel.config.js
 fileTransformer.js
-src/index.tsx
