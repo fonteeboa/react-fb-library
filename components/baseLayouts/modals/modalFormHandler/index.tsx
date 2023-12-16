@@ -28,7 +28,6 @@ export const ModalFormHandler: React.FC<ModalProps> = ({ closeModal, onSave, fie
          className="customModal"
          isOpen={true}
          onRequestClose={closeModal}
-         footer={null}
          key="complexFormModal"
       >
          <Card 

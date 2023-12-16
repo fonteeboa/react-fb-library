@@ -1,6 +1,5 @@
 # FBLibrary (Fonte Boa Library)
 
-[React](https://react.dev/) &middot; 
 [![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 [![Quality Gate New Code Status](https://sonarcloud.io/api/project_badges/measure?project=fonteeboa_FBLibrary&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=fonteeboa_FBLibrary)
 [![Quality Gate overall Status](https://sonarcloud.io/api/project_badges/measure?project=fonteeboa_FBLibrary&metric=alert_status)](https://sonarcloud.io/summary/overall?id=fonteeboa_FBLibrary)

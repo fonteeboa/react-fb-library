@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { MenuItem } from '../../sidebar/types';
 
 export interface LayoutProps {

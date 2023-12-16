@@ -20,7 +20,7 @@ export const handleFormSubmit = async (form: FormInstance, onSave: (values: any)
 };
 
 export const setFieldValues = (form: FormInstance, e: any, fieldName: string): void => {
-   let value = undefined;
+   let value = 'undefined';
    switch (fieldName) {
    case 'date':
       value = moment(e).format("YYYY-MM-DD HH:mm")
@@ -29,7 +29,7 @@ export const setFieldValues = (form: FormInstance, e: any, fieldName: string): v
       value = e.target? e.target.value : e;
    }
   
-   if (value !== undefined) {
+   if (value !== 'undefined') {
       form.setFieldsValue({ [fieldName]: value });
    }
 };

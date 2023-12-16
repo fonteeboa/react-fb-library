@@ -1,14 +1,14 @@
 import React from 'react';
 import { Result, Button } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { DownloadMicroserviceScreenProps } from './types';
+import { DownloadScreenProps } from './types';
 /**
  * Reloads the current page.
  *
  * @param {none} none - no parameters required
  * @return {void} no return value
  */
-const DownloadMicroserviceScreen: React.FC<DownloadMicroserviceScreenProps> = ({
+const DownloadScreen: React.FC<DownloadScreenProps> = ({
    microserviceName,
    downloadUrl,
 }) => {
@@ -47,4 +47,4 @@ const DownloadMicroserviceScreen: React.FC<DownloadMicroserviceScreenProps> = ({
    );
 };
 
-export default DownloadMicroserviceScreen;
+export default DownloadScreen;

@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { Modal, Button, Tabs, Card, Form } from 'antd';
 import { FormInstance } from "antd/lib/form";
 import { renderfields } from '../../../../utils/renderField';
-import { MultiModalFormHandlerProps, TabContent } from '../types';
+import { MultiModalProps, TabContent } from '../types';
 const { TabPane } = Tabs;
 
-export const MultiModalFormHandler: React.FC<MultiModalFormHandlerProps> = ({ dynamicModals = [], pageTitle, handleSaveData, closeModal, }) => {
+export const MultiModalFormHandler: React.FC<MultiModalProps> = ({ dynamicModals = [], pageTitle, handleSaveData, closeModal, }) => {
    const [activeTab, setActiveTab] = useState('1');
    const [modalVisible, setModalVisible] = useState(false);
    const [form] = Form.useForm<FormInstance<FormData>>();
