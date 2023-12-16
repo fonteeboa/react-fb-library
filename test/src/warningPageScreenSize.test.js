@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { WarningPageScreenSize } from '../../components'; // Update the path as necessary
-import { useTranslation } from 'react-i18next';
+import { WarningPageScreenSize } from '../../components';
 
 // Mock the useTranslation hook
 jest.mock('react-i18next', () => ({
