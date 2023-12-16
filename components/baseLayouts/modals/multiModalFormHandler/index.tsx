@@ -15,7 +15,7 @@ export const MultiModalFormHandler: React.FC<MultiModalProps> = ({ dynamicModals
    };
 
    const setFieldValues= (value: any, fieldName: string) => {
-      console.log(value, fieldName);
+      console.error(value, fieldName);
    }
 
    const FormContent = (tabsContent: TabContent ) => {

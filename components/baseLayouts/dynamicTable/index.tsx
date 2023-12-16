@@ -31,7 +31,7 @@ const DynamicTable = <T extends object>({ pageTitle,  dataSource, columns, title
       },
    };
 
-   const deleteAll = (e: any) => {
+   const deleteAll = () => {
       if (deleteAction)
          deleteAction(selectedRowKeys);
    };

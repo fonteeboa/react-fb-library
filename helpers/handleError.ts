@@ -129,7 +129,7 @@ export function useHandleErrorMessage() {
       }
      
       // Registrar o erro no console para depuração
-      console.log('Erro:', error);
+      console.error('Erro:', error);
       // Exibir a mensagem de erro ao usuário
       return message.error(errorMessage);
    

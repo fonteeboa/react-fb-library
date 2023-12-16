@@ -3,3 +3,4 @@ jest.config.ts
 setupTests.ts
 babel.config.js
 fileTransformer.js
+test/

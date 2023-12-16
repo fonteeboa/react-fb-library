@@ -15,7 +15,7 @@ export const ModalFormHandler: React.FC<ModalProps> = ({ closeModal, onSave, fie
       setCurrentItemValues(form, currentItem);
    }, [form, currentItem]);
   
-   const handleSubmit = async (e: any): Promise<void> => {
+   const handleSubmit = async (): Promise<void> => {
       handleFormSubmit(form, onSave);
    };
   

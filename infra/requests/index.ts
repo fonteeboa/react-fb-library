@@ -5,6 +5,20 @@ import { baseConfig } from "./constants";
 let config = baseConfig;
 
 /**
+ * Sets the token authentication for the given request configuration.
+ *
+ * @param {RequestConfig} config - The request configuration to set the authentication token for.
+ * @return {Promise<RequestConfig>} The modified request configuration with the authentication token set, if available.
+ */
+const setTokenAuth = async (config: RequestConfig): Promise<RequestConfig> => {
+   const authToken = await sessionStorage.getItem('authToken');
+   if (authToken) {
+      config.headers['Authorization'] = 'Bearer ' + authToken;
+   }
+   return config;
+}
+
+/**
  * Retrieves a service from the specified URL with optional authentication.
  *
  * @param {ServiceParams} params - The parameters for retrieving the service.
@@ -23,7 +37,7 @@ export const getService = async <T>(params: ServiceParams): Promise<T> => {
    return axios.get(url, { ...config, params: body }).then((response: AxiosResponse<T>) => {
       return response.data;
    }).catch(error => {
-      console.log(error);
+      console.error(error);
       return [] as T;
    });
 };
@@ -47,7 +61,7 @@ export const postService = async <T> (params: ServiceParams): Promise<T | boolea
    return axios.post(url, body, config).then((response: AxiosResponse<T>) => {
       return response.data;
    }).catch(error => {
-      console.log(error);
+      console.error(error);
       return false;
    });
 };
@@ -68,7 +82,7 @@ export const putService = async <T>(params: ServiceParams): Promise<T | boolean>
    return axios.put(url, body, config).then((response: AxiosResponse<T>) => {
       return response.data;
    }).catch(error => {
-      console.log(error);
+      console.error(error);
       return false;
    });
 };
@@ -95,7 +109,7 @@ export const deleteService = async <T>(params: ServiceParams): Promise<T | boole
    return axios.delete(url, config).then((response: AxiosResponse<T>) => {
       return response.data;
    }).catch(error => {
-      console.log(error);
+      console.error(error);
       return false;
    });
 }
@@ -106,8 +120,8 @@ export const deleteWithBodyService = async <T>(params: ServiceParams): Promise<T
    const axiosRequestConfig: AxiosRequestConfig = {
       method: 'delete',
       url: url,
-      headers: params.headers as { 'Content-Type': string; Accept: string; Authorization?: string }, // Ajuste de tipo para os cabeçalhos
-      data: params.body, // Utilize 'data' para o corpo da requisição
+      headers: params.headers as { 'Content-Type': string; Accept: string; Authorization?: string },
+      data: params.body,
    };
 
    return axios(axiosRequestConfig)
@@ -115,7 +129,7 @@ export const deleteWithBodyService = async <T>(params: ServiceParams): Promise<T
          return response.data;
       })
       .catch(error => {
-         console.log(error);
+         console.error(error);
          return false;
       });
 }
@@ -136,17 +150,3 @@ export const checkGetRequest = async (params: ServiceParams): Promise<boolean> =
       return false;
    }
 };
-
-/**
- * Sets the token authentication for the given request configuration.
- *
- * @param {RequestConfig} config - The request configuration to set the authentication token for.
- * @return {Promise<RequestConfig>} The modified request configuration with the authentication token set, if available.
- */
-const setTokenAuth = async (config: RequestConfig): Promise<RequestConfig> => {
-   const authToken = await sessionStorage.getItem('authToken');
-   if (authToken) {
-      config.headers['Authorization'] = 'Bearer ' + authToken;
-   }
-   return config;
-}

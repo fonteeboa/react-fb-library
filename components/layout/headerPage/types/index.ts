@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Action } from '../../../baseComponents/bulkActionsDropdown/types'; // Certifique-se de importar o tipo Action
+import { Action } from '../../../baseComponents/bulkActionsDropdown/types';
 
 export type HeaderPageProps = {
     children: ReactNode;

@@ -25,7 +25,9 @@
       "@/*": ["*"]
     }
   },
-  "include": [
-    "src"
-, "react-app-env.d.ts", "react-modal.d.ts", "src/shared/reportWebVitals.ts"  ]
+  "include": [ 
+    "./**/*",
+    "react-app-env.d.ts", 
+    "react-modal.d.ts", 
+    "src/shared/reportWebVitals.ts" ]
 }
