@@ -1,6 +1,7 @@
 {
-    "name": "fblibrary",
+    "name": "fblibrary-react",
     "version": "1.0.0",
+    "license": "MIT",
     "dependencies": {
         "@ant-design/icons": "^5.2.6",
         "@babel/preset-typescript": "^7.23.3",
@@ -44,5 +45,13 @@
         "react-app": "^1.1.2",
         "ts-jest": "^29.1.1",
         "ts-node": "^10.9.2"
-    }
+    },
+    "keywords": [
+        "ant", "component", "components", "design", "framework", "frontend", "react", "react-component",
+        "ui", "library", "fblibrary", "fonteboa", "reusable", "development", "efficiency", "standardization",
+        "quality", "innovation", "library", "UI", "accelerate", "consistency", "visual", "tested", "best practices",
+        "MIT", "license", "ant", "component", "components", "design", "framework", "frontend", "react", "react-component", 
+        "ui", "library", "fblibrary", "fonteboa", "componentes", "reutilizáveis", "desenvolvimento", "eficiência", "padronização", 
+        "qualidade", "inovação", "biblioteca", "UI", "acelerar", "consistência", "visual", "testados", "melhores práticas", "MIT", "licença"
+    ]    
 }
