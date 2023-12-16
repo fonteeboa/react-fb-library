@@ -12,8 +12,11 @@ FBLibrary é uma biblioteca autoral que reúne componentes e bases fundamentais 
 ## Por que usar a FBLibrary?
 
 🔹 **Eficiência**: Importe e utilize componentes facilmente, acelerando o desenvolvimento.
+
 🔹 **Padronização**: Mantenha uma consistência visual e funcional em seus projetos.
+
 🔹 **Qualidade**: Componentes testados e refinados para oferecer desempenho confiável.
+
 🔹 **Inovação**: Mantenha-se atualizado com as melhores práticas de desenvolvimento.
 
 A ideia por trás da FBLibrary é fornecer uma base sólida de componentes e estruturas que podem ser facilmente integrados aos seus projetos. Isso permite que você acelere o desenvolvimento e mantenha a consistência em toda a sua aplicação, ao mesmo tempo em que se beneficia da qualidade e inovação incorporadas aos componentes da biblioteca.
