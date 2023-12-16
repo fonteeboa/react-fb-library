@@ -97,7 +97,7 @@ const ptBR = {
   "common.create": "Criar",
   "common.created": "Criado",
   "common.custom-signature": "Assinatura Customizada",
-  "common.custom": "Customizar",
+  "common.customize": "Customizar",
   "common.dashboard": "Painel de Controle",
   "common.data.Loading.error": "Erro ao Carregar Dados",
   "common.data.Loading.errorMessage": "Houve um problema ao carregar os dados. Por favor, tente novamente.",
@@ -286,7 +286,7 @@ const ptBR = {
   "common.next": "Próximo",
   "common.no.results.found.message": "Não foram encontrados resultados para a sua busca.",
   "common.no.results.found": "Nenhum Resultado Encontrado",
-  "common.no.tAuthorized": "Não Autorizado",
+  "common.not.Authorized": "Não Autorizado",
   "common.no": "Não",
   "common.no.group": "Nenhum Grupo",
   "common.none": "Nenhum",
@@ -532,7 +532,6 @@ const ptBR = {
   "warning.unsupported.Browser": "Navegador não suportado",
   "warningPage.subTitle": "Desculpe, esta página não está disponível em telas menores que 600px.",
   "warningPage.title": "Tela Muito Pequena",
-
 }
 
 export default ptBR;
