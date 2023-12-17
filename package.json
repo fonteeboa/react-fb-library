@@ -1,12 +1,33 @@
 {
     "name": "fblibrary-react",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "license": "MIT",
     "repository": {
         "type": "git",
         "url": "https://github.com/fonteeboa/FBLibrary"
     },
-    "main": "index.js",    
+    "main": "dist/bundle.js",
+    "types": "dist/src/index.d.ts",
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "test": "jest --passWithNoTests --no-cache",
+        "lint": "eslint .",
+        "lint-fix": "eslint . --ext .ts,.tsx --fix",
+        "build": "rollup -c"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "peerDependencies": {
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
+    },
     "dependencies": {
         "@ant-design/icons": "^5.2.6",
         "@babel/preset-typescript": "^7.23.3",
@@ -17,27 +38,21 @@
         "axios": "^1.6.2",
         "heroicons-react": "^1.4.1",
         "moment": "^2.29.4",
-        "react": "^18.2.0",
+        "react": "^18.0.0",
         "react-i18next": "^13.5.0",
         "react-loader-spinner": "^6.1.0",
         "react-modal": "^3.16.1",
         "react-router-dom": "^6.21.0",
         "typescript": "^5.3.3"
     },
-    "scripts": {
-        "test": "jest --passWithNoTests --no-cache",
-        "lint": "eslint .",
-        "lint-fix": "eslint . --ext .ts,.tsx --fix"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
-    },
     "devDependencies": {
         "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+        "@babel/preset-env": "^7.23.6",
         "@babel/preset-react": "^7.23.3",
+        "@rollup/plugin-babel": "^6.0.4",
+        "@rollup/plugin-commonjs": "^25.0.7",
+        "@rollup/plugin-node-resolve": "^15.2.3",
+        "@rollup/plugin-typescript": "^11.1.5",
         "@testing-library/jest-dom": "^6.1.5",
         "@testing-library/react": "^14.1.2",
         "eslint": "^8.56.0",
@@ -48,15 +63,67 @@
         "jest-junit": "^16.0.0",
         "match-media-mock": "^0.1.1",
         "react-app": "^1.1.2",
+        "rollup": "^2.79.1",
+        "rollup-plugin-postcss": "^4.0.2",
+        "rollup-plugin-terser": "^7.0.2",
         "ts-jest": "^29.1.1",
         "ts-node": "^10.9.2"
     },
     "keywords": [
-        "ant", "component", "components", "design", "framework", "frontend", "react", "react-component",
-        "ui", "library", "fblibrary", "fonteboa", "reusable", "development", "efficiency", "standardization",
-        "quality", "innovation", "library", "UI", "accelerate", "consistency", "visual", "tested", "best practices",
-        "MIT", "license", "ant", "component", "components", "design", "framework", "frontend", "react", "react-component", 
-        "ui", "library", "fblibrary", "fonteboa", "componentes", "reutilizáveis", "desenvolvimento", "eficiência", "padronização", 
-        "qualidade", "inovação", "biblioteca", "UI", "acelerar", "consistência", "visual", "testados", "melhores práticas", "MIT", "licença"
-    ]    
+        "ant",
+        "component",
+        "components",
+        "design",
+        "framework",
+        "frontend",
+        "react",
+        "react-component",
+        "ui",
+        "library",
+        "fblibrary",
+        "fonteboa",
+        "reusable",
+        "development",
+        "efficiency",
+        "standardization",
+        "quality",
+        "innovation",
+        "library",
+        "UI",
+        "accelerate",
+        "consistency",
+        "visual",
+        "tested",
+        "best practices",
+        "MIT",
+        "license",
+        "ant",
+        "component",
+        "components",
+        "design",
+        "framework",
+        "frontend",
+        "react",
+        "react-component",
+        "ui",
+        "library",
+        "fblibrary",
+        "fonteboa",
+        "componentes",
+        "reutilizáveis",
+        "desenvolvimento",
+        "eficiência",
+        "padronização",
+        "qualidade",
+        "inovação",
+        "biblioteca",
+        "UI",
+        "acelerar",
+        "consistência",
+        "visual",
+        "testados",
+        "melhores práticas",
+        "MIT",
+        "licença"
+    ]
 }

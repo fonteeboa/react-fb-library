@@ -1,0 +1,31 @@
+.layout {
+    display: grid;
+    grid-template-columns: 215px 1fr;
+    grid-gap: 16px;
+    height: 100%;
+}
+
+/* Estilos para o container do grid */
+.grid-container {
+    display: flex;
+    flex-direction: column; /* Para que a tabela ocupe toda a altura disponível */
+    gap: 20px;
+    max-height: 95%;
+    min-height: 95%;
+    max-width: calc(100% - 300px);
+    width: calc(100% - 300px);
+    margin: 20px;
+    position: fixed; /* Fixar o container */
+    bottom: 2.5px; /* Deixar a 10px do fundo */
+    overflow-y: auto; 
+}
+
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin-left: auto; /* Adicione a largura do menu à esquerda */
+  }
+  

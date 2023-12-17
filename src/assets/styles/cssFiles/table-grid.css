@@ -1,0 +1,32 @@
+/* Estilos para a tabela (Table) */
+.ant-table {
+    flex-grow: 1; /* A tabela crescerá para ocupar todo o espaço vertical disponível */
+    max-height: 65vh; /* Altura máxima de 80% da altura da tela */
+    overflow-y: auto; /* Adicionar barra de rolagem vertical quando necessário */
+  
+  }
+  
+  /* Estilos para os itens do grid (substitua isso com seus estilos) */
+  .grid-item {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    height: 100%; /* Ajuste a altura conforme necessário */
+    max-width: calc(100% - 300px);
+    width: calc(100% - 300px);
+  }
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+  }
+  
+  .table-header h3 {
+    margin: 0;
+  }
+  
+  .table-header button {
+    margin-left: 16px; /* Espaço entre o título e o botão */
+  }

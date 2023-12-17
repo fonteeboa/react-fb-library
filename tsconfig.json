@@ -6,6 +6,8 @@
       "dom.iterable",
       "esnext"
     ],
+    "outDir": "./dist",
+    "module": "esnext",    
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -13,21 +15,24 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "commonjs",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": false,
-    "noEmit": true,
+    "noEmit": true,    
+    "declaration": true,
     "jsx": "react-jsx",
     "rootDir": "./",
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "paths": {
       "@/*": ["*"]
     }
   },
-  "include": [ 
-    "./**/*",
-    "react-app-env.d.ts", 
-    "react-modal.d.ts", 
-    "src/shared/reportWebVitals.ts" ]
+  "include": [
+    "./**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+
 }
