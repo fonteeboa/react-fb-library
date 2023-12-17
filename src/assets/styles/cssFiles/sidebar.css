@@ -1,0 +1,9 @@
+.sidebar {
+    background-color: #333;
+    color: #fff;  
+}
+  
+.sidebar-content, .Menu  {
+    width: 215px;
+    height: 100vh;
+}

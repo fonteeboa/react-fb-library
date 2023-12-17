@@ -1,0 +1,34 @@
+body, #root, #rootScreenSize {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .layout {
+    background-color: rgb(244, 244, 244);
+  }
+  
+  /*  Estilos especificos para a tela quando o tamanho for menor que 800px. */
+  @media screen and (max-height: 800px), (max-width: 800px) {
+      .ant-table {
+        flex-grow: 1;
+        max-height: 55vh; /* Altura máxima de 55% da altura da tela */
+        overflow-y: auto;
+      }
+    }
+    
+    #rootScreenSize {
+      display: none
+    }
+    /* Mantenha as regras para ocultar elementos desnecessários */
+    @media screen and (max-height: 400px), (max-width: 600px) {
+      #root, .layout, .sidebar, .sidebar-content, .Menu, .grid-container, .grid-item, .table-header, .customModal {
+        display: none;
+      }
+    
+      #rootScreenSize {
+        display: flex;
+        z-index: 9999;
+      }
+    }
