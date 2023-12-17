@@ -1,4 +1,4 @@
-// Exportando componentes base e seus tipos, se houver
+// Exportando tipos
 export type { BulkActionsDropdownProps } from './components/baseComponents/bulkActionsDropdown/types';
 export type { IButton as ButtonProps } from './components/baseComponents/button/types';
 export type { IInputField as InputFieldProps } from './components/baseComponents/inputField/types';
@@ -11,7 +11,7 @@ export type { DownloadScreenLoadingProps } from './components/layout/downloadScr
 export type { HeaderPageProps } from './components/layout/headerPage/types';
 export type { LayoutProps as ScreenLayoutProps } from './components/layout/screenLayout/types';
 export type { SidebarMenuProps as SidebarProps } from './components/layout/sidebar/types';
-
+// Exportando componentes
 export { 
     Grid,
     Modal,
@@ -27,8 +27,21 @@ export {
     InputField,
     Select
 } from './components';
-
+// Exportando traduções
 export {
     ptBR,
     enUS
 } from './i18n';
+// Exportando funções
+export {
+    checkGetRequest,
+    getService,
+    postService,
+    putService,
+    deleteService,
+    deleteWithBodyService,
+} from './infra/requests';
+export { validFields } from './helpers/validFields';
+export { useHandleErrorMessage } from './helpers/handleError';
+export { validateCNPJ, validateCPF } from './helpers/utils';
+export { importCSS } from './assets/styles/cssImports';
