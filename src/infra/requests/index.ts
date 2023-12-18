@@ -8,7 +8,7 @@ const setTokenAuth = async (headers: Headers): Promise<Headers> => {
    return headers;
 }
 
-async function makeFetchRequest<T>(params: ServiceParams, method: string): Promise<T | boolean> {
+export async function makeFetchRequest<T>(params: ServiceParams, method: string): Promise<T | boolean> {
    const { baseUrl, route = '', body, authToken, headers: customHeaders } = params;
    const url = method === 'GET' && body ? new URL(baseUrl + route, body) : baseUrl + route;
 
@@ -37,7 +37,7 @@ async function makeFetchRequest<T>(params: ServiceParams, method: string): Promi
            return false;
        }
 
-       return method !== 'GET' ? await response.json() as T : true as unknown as T;
+       return await response.json() as T 
    } catch (error) {
        console.error(`Error in ${method} request:`, error);
        return false;
