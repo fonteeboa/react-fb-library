@@ -6,6 +6,9 @@
         "type": "git",
         "url": "https://github.com/fonteeboa/FBLibrary"
     },
+    "publishConfig": {
+        "registry": "https://www.npmjs.com/package/fblibrary-react"
+      },
     "main": "dist/bundle.js",
     "types": "dist/types/src/index.d.ts",
     "scripts": {
