@@ -2,7 +2,6 @@ import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { BulkActionsDropdown } from '../../components';
-import { Menu, Popconfirm } from 'antd';
 import { mockActions } from '../mock/bulkActions';
 
 const makeRender = (actions = []) => {
