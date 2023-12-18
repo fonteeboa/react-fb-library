@@ -5,7 +5,9 @@ export default {
   collectCoverage: true,
   coverageDirectory: "coverage",
   coveragePathIgnorePatterns: [
-    "<rootDir>/src/test/"
+    "<rootDir>/src/{test, assets, i18n}/",
+    "<rootDir>/dist/",
+    "<rootDir>/.github/",
   ],  
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/fileTransformer.js',
