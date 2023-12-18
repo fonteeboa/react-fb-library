@@ -1,3 +1,6 @@
+export const mockDeleteAction = jest.fn();
+export const mockOpenModalAction = jest.fn();
+
 // Mock das colunas e dados de exemplo
 export const columns = [
     {

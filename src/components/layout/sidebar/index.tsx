@@ -20,19 +20,19 @@ function renderSubMenu(subMenu: SubMenuItem[]) {
 
       if (subSubMenu && subSubMenu.length > 0) {
          return (
-            <SubMenu key={'subMenu'+ index + 'subMenu'}  title={label} icon={itemIcon}>
+            <SubMenu key={'subMenu2'+ index}  title={label} icon={itemIcon} data-testid={index + '-' + label}>
                {renderSubMenu(subSubMenu)}
             </SubMenu>
          );
       } else if (route) {
          return (
-            <Menu.Item key={'MenuItem'+ index}  icon={itemIcon}>
+            <Menu.Item key={'MenuItem'+ index}  icon={itemIcon} data-testid={index + '-' + label}>
                {external ? <a href={route} target="_blank" rel="noopener noreferrer"> { label } </a> : linkComponent}
             </Menu.Item>
          );
       } else {
          return (
-            <Menu.Item key={'MenuItem'+index}  icon={itemIcon}>
+            <Menu.Item key={'MenuItem'+index}  icon={itemIcon} data-testid={index + '-' + label}>
                {label}
             </Menu.Item>
          );
@@ -46,6 +46,7 @@ function renderMenuItem(item: MenuItem, index: number) {
       return (
          <SubMenu
             key={'SubMenu'+index}
+            data-testid={index + '-' + item.label}
             title={item.label}
             icon={
                item.icon ? (
@@ -62,7 +63,7 @@ function renderMenuItem(item: MenuItem, index: number) {
       );
    } else {
       return (
-         <Menu.Item key={'Menu'+index} icon={item.icon ? <FontAwesomeIcon icon={item.icon as IconProp} /> : null}>
+         <Menu.Item key={'Menu'+index} icon={item.icon ? <FontAwesomeIcon icon={item.icon as IconProp} /> : null} data-testid={index + '-' + item.label}>
             {item.label}
          </Menu.Item>
       );
