@@ -527,7 +527,7 @@ const ptBR = {
   "error.unknown": "Erro Desconhecido",
   "module.download": "Baixar",
   "module.info.download": "Por favor, faça o download e execute-o e em seguida, clique em Recarregar a Página.",
-  "module.notfound": "Parece que você ainda não possui o módulo {{moduleName}}.",
+  "module.notfound": "Parece que você ainda não possui o módulo: ",
   "warning.unsupported.Browser.message": "Por favor, atualize seu navegador para uma versão mais recente para uma melhor experiência de usuário.",
   "warning.unsupported.Browser": "Navegador não suportado",
   "warningPage.subTitle": "Desculpe, esta página não está disponível em telas menores que 600px.",

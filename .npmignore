@@ -1,0 +1,5 @@
+coverage/
+testResults/
+.eslint*
+.rollup.config.js
+setupTests.ts

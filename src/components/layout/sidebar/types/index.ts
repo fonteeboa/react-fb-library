@@ -8,6 +8,7 @@ export interface SubMenuItem {
   route?: string;
   external?: boolean;
   subMenu?: SubMenuItem[];
+  linkComponent?: JSX.Element;
 }
 
 export interface MenuItem {

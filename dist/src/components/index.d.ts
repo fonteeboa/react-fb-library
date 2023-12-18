@@ -9,8 +9,6 @@ export { ModalFormHandler as Modal } from './baseLayouts/modals/modalFormHandler
 export type { ModalProps } from './baseLayouts/modals/types';
 export { MultiModalFormHandler as MultiModal } from './baseLayouts/modals/multiModalFormHandler';
 export type { MultiModalProps } from './baseLayouts/modals/types';
-export { default as DownloadModuleScreen } from './layout/downloadScreen';
-export type { DownloadScreenProps } from './layout/downloadScreen/types';
 export { default as DownloadModuleScreenWL } from './layout/downloadScreenLoading';
 export type { DownloadScreenLoadingProps } from './layout/downloadScreenLoading/types';
 export { default as HeaderPage } from './layout/headerPage';

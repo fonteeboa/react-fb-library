@@ -3,8 +3,6 @@ import { Menu } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { MenuItem, SubMenuItem, SidebarMenuProps } from './types';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
 const { SubMenu } = Menu;
 
@@ -15,48 +13,40 @@ const { SubMenu } = Menu;
  * @param {any} t - A translation function.
  * @return {ReactNode[]} - An array of React elements representing the rendered sub-menu.
  */
-function renderSubMenu(subMenu: SubMenuItem[], t: any) {
-   return subMenu.map((item) => {
-      const { label, icon, subMenu: subSubMenu, route, external } = item;
-      const itemIcon = icon ? (
-         typeof icon === 'string' ? <i className={icon}></i> : <FontAwesomeIcon icon={icon as IconProp} />
-      ) : null;
+function renderSubMenu(subMenu: SubMenuItem[]) {
+   return subMenu.map((item, index) => {
+      const { label, icon, subMenu: subSubMenu, route, external, linkComponent } = item;
+      const itemIcon = icon ? ( typeof icon === 'string' ? <i className={icon}></i> : <FontAwesomeIcon icon={icon as IconProp} /> ) : null;
 
       if (subSubMenu && subSubMenu.length > 0) {
          return (
-            <SubMenu key={label} title={t(label)} icon={itemIcon}>
-               {renderSubMenu(subSubMenu, t)}
+            <SubMenu key={'subMenu'+ index + 'subMenu'}  title={label} icon={itemIcon}>
+               {renderSubMenu(subSubMenu)}
             </SubMenu>
          );
       } else if (route) {
          return (
-            <Menu.Item key={label} icon={itemIcon}>
-               {external ? <a href={route} target="_blank" rel="noopener noreferrer"> { t(label) } </a> : <Link to={route}>{t(label)}</Link>}
+            <Menu.Item key={'MenuItem'+ index}  icon={itemIcon}>
+               {external ? <a href={route} target="_blank" rel="noopener noreferrer"> { label } </a> : linkComponent}
             </Menu.Item>
          );
       } else {
          return (
-            <Menu.Item key={label} icon={itemIcon}>
-               {t(label)}
+            <Menu.Item key={'MenuItem'+index}  icon={itemIcon}>
+               {label}
             </Menu.Item>
          );
       }
    });
 }
 
-/**
- * Render a menu item component.
- *
- * @param {MenuItem} item - the menu item to render
- * @param {any} t - the translation function
- * @return {JSX.Element} the rendered menu item component
- */
-function renderMenuItem(item: MenuItem, t: any) {
+
+function renderMenuItem(item: MenuItem, index: number) {
    if (item.subMenu && item.subMenu.length > 0) {
       return (
          <SubMenu
-            key={item.label}
-            title={t(item.label)}
+            key={'SubMenu'+index}
+            title={item.label}
             icon={
                item.icon ? (
                   typeof item.icon === 'string' ? (
@@ -67,13 +57,13 @@ function renderMenuItem(item: MenuItem, t: any) {
                ) : null
             }
          >
-            {renderSubMenu(item.subMenu, t)}
+            {renderSubMenu(item.subMenu)}
          </SubMenu>
       );
    } else {
       return (
-         <Menu.Item key={item.label} icon={item.icon ? <FontAwesomeIcon icon={item.icon as IconProp} /> : null}>
-            {t(item.label)}
+         <Menu.Item key={'Menu'+index} icon={item.icon ? <FontAwesomeIcon icon={item.icon as IconProp} /> : null}>
+            {item.label}
          </Menu.Item>
       );
    }
@@ -86,16 +76,14 @@ function renderMenuItem(item: MenuItem, t: any) {
  * @return {ReactElement} The rendered sidebar menu component.
  */
 const Sidebar: React.FC<SidebarMenuProps> = ({ menuItems }) => {
-   const { t } = useTranslation();
-
    return (
       <Menu
          className='Menu'
-         defaultSelectedKeys={['common.dashboard']}
-         defaultOpenKeys={['common.dashboard']}
+         defaultSelectedKeys={['0']}
+         defaultOpenKeys={['0']}
          mode="inline"
       >
-         {menuItems.map(item => renderMenuItem(item, t))}
+         {menuItems.map((item, index) => renderMenuItem(item, index))}
       </Menu>
    );
 };

@@ -6,23 +6,33 @@ import postcss from 'rollup-plugin-postcss';
 import json from '@rollup/plugin-json';
 
 export default {
-  input: './src/index.ts',
+  input: 'index.ts',
   output: {
     file: 'dist/bundle.js',
-    format: 'umd',
+    format: 'umd',    
     name: 'FBLibrary',
+    sourcemap: true,
     globals: {
       react: 'React',
       'react-dom': 'ReactDOM',
       antd: 'antd'
     }
   },
+  onwarn: function(warning, warn) {
+    if (warning.message.includes('use client')) {
+      return;
+    }
+    warn(warning);
+  },  
   external: ['react', 'react-dom', 'antd'],
   plugins: [
     json(),
     resolve(),
     commonjs(),
-    typescript(),
+    typescript({
+      tsconfig: './tsconfig.json',
+      declaration: true,
+    }),
     terser(),
     postcss({
       extensions: ['.css'],
