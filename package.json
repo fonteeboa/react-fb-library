@@ -9,7 +9,7 @@
     "main": "dist/bundle.js",
     "types": "dist/types/src/index.d.ts",
     "scripts": {
-        "test": "jest --passWithNoTests --no-cache",
+        "test": "jest --passWithNoTests --no-cache --coverage",
         "lint": "eslint .",
         "lint-fix": "eslint . --ext .ts,.tsx --fix",
         "build": "rollup -c",
