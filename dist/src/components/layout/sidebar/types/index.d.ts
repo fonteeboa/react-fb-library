@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 export type FontAwesomeIconType = IconDefinition | string;
 export interface SubMenuItem {
@@ -6,6 +7,7 @@ export interface SubMenuItem {
     route?: string;
     external?: boolean;
     subMenu?: SubMenuItem[];
+    linkComponent?: JSX.Element;
 }
 export interface MenuItem {
     label: string;

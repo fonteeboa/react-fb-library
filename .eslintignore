@@ -4,3 +4,4 @@ setupTests.ts
 babel.config.js
 fileTransformer.js
 src/test/
+rollup.config.js

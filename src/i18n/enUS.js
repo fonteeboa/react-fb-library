@@ -527,7 +527,7 @@ const enUS = {
   "error.unknown": "Unknown Error",
   "module.download": "Download",
   "module.info.download": "Please download and run it, then click on Reload Page.",
-  "module.notfound": "It seems that you still do not have the {{moduleName}} module.",
+  "module.notfound": "It seems that you still do not have the module: ",
   "warning.unsupported.Browser.message": "Please update your browser to a newer version for a better user experience.",
   "warning.unsupported.Browser": "Unsupported Browser",
   "warningPage.subTitle": "Sorry, this page is not available on screens smaller than 600px.",

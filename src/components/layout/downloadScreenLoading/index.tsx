@@ -1,6 +1,5 @@
 import React from 'react';
 import { Result, Button } from 'antd';
-import { useTranslation } from 'react-i18next';
 import { DownloadScreenLoadingProps } from './types';
 import { Blocks } from "react-loader-spinner";
 /**
@@ -12,9 +11,9 @@ import { Blocks } from "react-loader-spinner";
 const DownloadScreenLoading: React.FC<DownloadScreenLoadingProps> = ({
    microserviceName,
    downloadUrl,
-   loading
+   loading,
+   t,
 }) => {
-   const { t } = useTranslation();
 
    /**
    * Reloads the current page.
@@ -41,7 +40,7 @@ const DownloadScreenLoading: React.FC<DownloadScreenLoadingProps> = ({
             <Result
                status="warning"
                title={t("common.unavaible")}
-               subTitle={t("module.notfound", { moduleName: microserviceName })}
+               subTitle={t("module.notfound") + microserviceName }
                extra={
                   downloadUrl !== '' && (
                      <>

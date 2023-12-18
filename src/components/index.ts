@@ -1,3 +1,4 @@
+
 // Exportando componentes base e seus tipos, se houver
 export { 
     BulkActionsDropdown,
@@ -19,8 +20,6 @@ export { MultiModalFormHandler as MultiModal } from './baseLayouts/modals/multiM
 export type { MultiModalProps } from './baseLayouts/modals/types';
 
 // Exportando layouts específicos e seus tipos, se houver
-export { default as DownloadModuleScreen } from './layout/downloadScreen';
-export type { DownloadScreenProps } from './layout/downloadScreen/types';
 export { default as DownloadModuleScreenWL } from './layout/downloadScreenLoading';
 export type { DownloadScreenLoadingProps } from './layout/downloadScreenLoading/types';
 export { default as HeaderPage } from './layout/headerPage';
