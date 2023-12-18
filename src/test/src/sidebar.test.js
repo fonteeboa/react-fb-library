@@ -1,10 +1,7 @@
 import React from 'react';
-import { render, fireEvent, waitFor, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Sidebar from '../../components/layout/sidebar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faHome
-} from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 // Mock para FontAwesomeIcon
 jest.mock('@fortawesome/react-fontawesome', () => ({
   FontAwesomeIcon: () => <i className="fa-icon-mock"></i>
@@ -55,7 +52,7 @@ describe('Sidebar', () => {
       },
     ];
 
-    const { getByText, container } = render(<Sidebar menuItems={menuItems} />);
+    const { getByText } = render(<Sidebar menuItems={menuItems} />);
 
     // Verifica se os labels dos itens do menu estão sendo exibidos
     expect(getByText('common.overview')).toBeInTheDocument();
