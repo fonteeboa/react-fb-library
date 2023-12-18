@@ -11,7 +11,6 @@ setMatchMediaMock();
 const mockSetFieldValues = jest.fn();
 const formInstance = { getFieldValue: jest.fn() };
 
-
 // Exemplo de teste para o campo select
 describe('renderfields function', () => {
   it('renders input fields correctly', async () => {

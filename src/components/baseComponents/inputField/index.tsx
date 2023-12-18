@@ -26,18 +26,18 @@ export const InputField: React.FC<IInputField> = ({ name, type, icon, label, onC
      *
      * @param {any} type - The type of icon to retrieve.
      * @return {any} The corresponding icon component.
-     */
+   */
    const getIcon = (type: any) => {
       let icons: any;
       switch (type) {
       case 'email':
-         icons = <Mail />
+         icons = <Mail data-testid={'iconMail'} />
          break;
       case 'password':
-         icons = <LockClosed />
+         icons = <LockClosed data-testid={'iconLockClosed'} />
          break;
       case 'text':
-         icons = <User />
+         icons = <User data-testid={'iconUser'} />
          break;
       default:
          icons = "";
