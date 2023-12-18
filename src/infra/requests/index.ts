@@ -1,5 +1,10 @@
 import { ServiceParams } from "./domain";
-
+/**
+ * Sets the authentication token in the given headers object.
+ *
+ * @param {Headers} headers - The headers object to set the token in.
+ * @return {Promise<Headers>} The updated headers object with the token set.
+ */
 const setTokenAuth = async (headers: Headers): Promise<Headers> => {
    const authToken = await sessionStorage.getItem('authToken');
    if (authToken) {
@@ -7,7 +12,13 @@ const setTokenAuth = async (headers: Headers): Promise<Headers> => {
    }
    return headers;
 }
-
+/**
+ * Makes a fetch request to the specified URL using the provided parameters.
+ *
+ * @param {ServiceParams} params - The parameters for the fetch request.
+ * @param {string} method - The HTTP method for the request.
+ * @return {Promise<T | boolean>} - A promise that resolves to the response data or false if there was an error.
+ */
 export async function makeFetchRequest<T>(params: ServiceParams, method: string): Promise<T | boolean> {
    const { baseUrl, route = '', body, authToken, headers: customHeaders } = params;
    const url = method === 'GET' && body ? new URL(baseUrl + route, body) : baseUrl + route;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import { renderfields } from '../../utils/renderField'; // Atualize com o caminho correto
 import { setMatchMediaMock } from '../mock/matchMedia';
 
@@ -10,6 +10,12 @@ setMatchMediaMock();
 // Mocks para as funções e propriedades necessárias
 const mockSetFieldValues = jest.fn();
 const formInstance = { getFieldValue: jest.fn() };
+
+const validfields = (fieldData, testId) => {
+  const { getByTestId } = render( <div> {renderfields(fieldData, 0, formInstance, mockSetFieldValues)} </div> );
+  const field = getByTestId(testId);
+  expect(field).toBeInTheDocument();
+}
 
 // Exemplo de teste para o campo select
 describe('renderfields function', () => {
@@ -47,32 +53,24 @@ describe('renderfields function', () => {
 
   it('renders select fields correctly', async () => {
     const field = { label: 'common.select', type: 'select', name: 'select', rules: [{ required: true, message:"common.required.field" }] }
-    const { getByTestId } = render( <div> {renderfields(field, 0, formInstance, mockSetFieldValues)} </div> );
-    const selectField = getByTestId(`dataTestId${field.name}`);
-    expect(selectField).toBeInTheDocument();
+    validfields(field, `dataTestId${field.name}`);
   });
 
   it('renders datePicker fields correctly', async () => {
     const field = { label: 'common.datePicker', type: 'datePicker', name: 'datePicker', rules: [{ required: true, message:"common.required.field" }] }
-    const { getByTestId } = render( <div> {renderfields(field, 0, formInstance, mockSetFieldValues)} </div> );
-    const selectField = getByTestId(`dataTestId-${field.name}`);
-    expect(selectField).toBeInTheDocument();
+    validfields(field, `dataTestId-${field.name}`);
   });
 
   it('renders slider fields correctly', async () => {
     const field = { label: 'common.slider', type: 'slider', name: 'slider', rules: [{ required: true, message:"common.required.field" }] }
-    const { getByTestId } = render( <div> {renderfields(field, 0, formInstance, mockSetFieldValues)} </div> );
-    const sliderField = getByTestId(`dataTestId${field.name}`);
-    expect(sliderField).toBeInTheDocument();
+    validfields(field, `dataTestId${field.name}`);
   });
 
   it('renders number fields correctly', async () => {
     const field = { label: 'common.number', type: 'number', name: 'number', required: true }
-    const { getByTestId } = render( <div> {renderfields(field, 0, formInstance, mockSetFieldValues)} </div> );
-    const selectField = getByTestId(`dataTestId${field.name}`);
-    expect(selectField).toBeInTheDocument();
-    fireEvent.change(selectField, { target: { value: "11" } });
-    expect(selectField.value).toBe("11");
+    validfields(field, `dataTestId${field.name}`);
+    fireEvent.change(screen.getByTestId(`dataTestId${field.name}`), { target: { value: "11" } });
+    expect(screen.getByTestId(`dataTestId${field.name}`).value).toBe("11");
   });
 
 });

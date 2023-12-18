@@ -6,7 +6,16 @@ import { Field } from '../components/baseLayouts/modals/types';
 import { Form, Row, Col,DatePicker, Switch, Input } from 'antd';
 import dayjs from 'dayjs';
 import { customStyles } from '../components/baseLayouts/modals/constants/constants';
-
+/**
+ * Renders a field based on its type.
+ *
+ * @param {Field} field - The field object to render.
+ * @param {any} styleField - Optional styling for the field.
+ * @param {number} index - The index of the field.
+ * @param {FormInstance} form - The form instance.
+ * @param {(value: any, fieldName: string) => void} setFieldValues - Function to set field values.
+ * @return {*} The rendered field component.
+ */
 const renderField = (
    field: Field,
    styleField: any = {},
@@ -78,13 +87,19 @@ const renderField = (
       )
    }
 };
-
-
+/**
+ * Renders the fields based on the provided parameters.
+ *
+ * @param {Field} field - The field object to render.
+ * @param {number} index - The index of the field.
+ * @param {FormInstance} form - The instance of the form.
+ * @param {(value: any, fieldName: string) => void} setFieldValues - The function to set field values.
+ * @return {JSX.Element} The rendered fields.
+ */
 export const renderfields = (field: Field, index: number, form: FormInstance, setFieldValues: (value: any, fieldName: string) => void) => {
    if (field.required && !field.rules) {
       field.rules = ['required'];
    }
-
    if (field.doublelines) {
       return (
          <Row gutter={16}>
