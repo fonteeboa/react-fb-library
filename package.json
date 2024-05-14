@@ -58,6 +58,8 @@
         "@rollup/plugin-typescript": "^11.1.5",
         "@testing-library/jest-dom": "^6.1.5",
         "@testing-library/react": "^14.1.2",
+        "@types/aria-query": "^5.0.4",
+        "@types/scheduler": "^0.23.0",
         "babel-jest": "^29.7.0",
         "eslint": "^8.56.0",
         "eslint-config-react-app": "^7.0.1",
