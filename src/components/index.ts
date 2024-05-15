@@ -12,7 +12,7 @@ export type { IBox as SelectComponentProps } from './baseComponents/selectCompon
 
 // Exportando layouts base e seus tipos, se houver
 export { default as Grid } from './baseLayouts/dynamicTable';
-export type { DynamicTableProps } from './baseLayouts/dynamicTable/types';
+export type { DynamicTableProps, ColumnsType } from './baseLayouts/dynamicTable/types';
 export { ModalFormHandler as Modal } from './baseLayouts/modals/modalFormHandler';
 export type { ModalProps } from './baseLayouts/modals/types';
 export { MultiModalFormHandler as MultiModal } from './baseLayouts/modals/multiModalFormHandler';

@@ -1,5 +1,6 @@
 import type { ColumnsType } from 'antd/es/table';
 import { Action } from '../../../baseComponents/bulkActionsDropdown/types';
+export { ColumnsType }; 
 
 export interface DynamicTableProps<T> {
   dataSource: T[];
