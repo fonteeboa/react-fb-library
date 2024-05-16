@@ -1,13 +1,13 @@
 {
-    "name": "fblibrary-react",
+    "name": "react-fblibrary",
     "version": "1.0.10",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/fonteeboa/FBLibrary"
+        "url": "https://github.com/fonteeboa/react-fb-library.git"
     },
     "publishConfig": {
-        "registry": "https://www.npmjs.com/package/fblibrary-react"
+        "registry": "https://registry.npmjs.org/"
     },
     "main": "dist/bundle.js",
     "types": "dist/types/src/index.d.ts",
