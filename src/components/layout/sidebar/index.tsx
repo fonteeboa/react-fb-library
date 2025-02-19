@@ -45,7 +45,7 @@ function renderSubMenu(subMenu: SubMenuItem[], parentKey: string) {
 function renderMenuItem(item: MenuItem, index: number) {
    const itemKey = generateKey('MainMenu', index, item.label);
 
-   if (item.subMenu && item.subMenu.length > 0) {
+   if (item.subMenu.length > 0) {
       return (
          <SubMenu
             key={itemKey}
