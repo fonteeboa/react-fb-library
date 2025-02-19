@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["scheduler"],
+    "types": ["scheduler", "node", "jest"],
     "target": "es6",
     "lib": [
       "dom",

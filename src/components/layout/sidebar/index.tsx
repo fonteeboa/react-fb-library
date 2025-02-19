@@ -3,6 +3,7 @@ import { Menu } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { MenuItem, SubMenuItem, SidebarMenuProps } from './types';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { Link } from 'react-router-dom';
 
 const regex = /\s+/g;
 const { SubMenu } = Menu;
@@ -19,6 +20,8 @@ function renderSubMenu(subMenu: SubMenuItem[], parentKey: string) {
       const { label, icon, subMenu: subSubMenu, route, external, linkComponent } = item;
       const itemIcon = icon ? ( typeof icon === 'string' ? <i className={icon}></i> : <FontAwesomeIcon icon={icon as IconProp} /> ) : null;
       const itemKey = generateKey(parentKey, index, label);
+      const mockroute = route ? route : '/';
+      const customLink = linkComponent ? linkComponent : <Link to={mockroute}>{label}</Link>;
 
       if (subSubMenu && subSubMenu.length > 0) {
          return (
@@ -29,13 +32,13 @@ function renderSubMenu(subMenu: SubMenuItem[], parentKey: string) {
       } else if (route) {
          return (
             <Menu.Item key={itemKey} icon={itemIcon} data-testid={itemKey}>
-               {external ? <a href={route} target="_blank" rel="noopener noreferrer"> { label } </a> : linkComponent}
+               {external ? <a href={route} target="_blank" rel="noopener noreferrer"> { label } </a> : customLink}
             </Menu.Item>
          );
       } else {
          return (
             <Menu.Item key={itemKey} icon={itemIcon} data-testid={itemKey}>
-               {label}
+               { label }
             </Menu.Item>
          );
       }
@@ -45,7 +48,7 @@ function renderSubMenu(subMenu: SubMenuItem[], parentKey: string) {
 function renderMenuItem(item: MenuItem, index: number) {
    const itemKey = generateKey('MainMenu', index, item.label);
 
-   if (item.subMenu.length > 0) {
+   if (item.subMenu && item.subMenu.length > 0) {
       return (
          <SubMenu
             key={itemKey}

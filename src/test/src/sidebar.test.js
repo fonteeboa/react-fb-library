@@ -44,8 +44,8 @@ describe('Sidebar', () => {
             icon: false, 
             external: true, 
             subMenu: [
-              { label: 'common.github', route: 'https://github.com/galvao845', icon: false, external: true },
-              { label: 'common.linkedin', route: 'https://www.linkedin.com/in/galvao845', icon: false, external: true },
+              { label: 'common.github', route: 'https://github.com/username', icon: false, external: true },
+              { label: 'common.linkedin', route: 'https://www.linkedin.com/in/usename', icon: false, external: true },
             ]
           },
         ],
