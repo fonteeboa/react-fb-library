@@ -7,8 +7,6 @@ import { message } from 'antd';
  */
 export function useHandleErrorMessage() {
   const handleErrorMessage = (status: number, error: Error | null): void => {
-    let errorMessage: string = 'error.defaultError';
-
     // Mapeamento de mensagens de erro por status HTTP
     const statusMessages = new Map<number, string>([
       // Códigos de status 1xx
@@ -53,7 +51,7 @@ export function useHandleErrorMessage() {
     ]);
 
     // Verifica se existe uma mensagem correspondente ao status
-    errorMessage = statusMessages.get(status) || "error.defaultErrorWithCode";
+    let errorMessage = statusMessages.get(status) || "error.defaultError";
 
     // Verifica se há erro de rede
     if (error?.message?.includes('Network Error')) {

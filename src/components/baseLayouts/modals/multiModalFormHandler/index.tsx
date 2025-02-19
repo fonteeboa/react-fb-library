@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { Modal, Button, Tabs, Card, Form } from 'antd';
-import { FormInstance } from "antd/lib/form";
 import { renderfields } from '../../../../utils/renderField';
 import { MultiModalProps, TabContent, FormData } from '../types';
 const { TabPane } = Tabs;

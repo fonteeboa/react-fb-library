@@ -23,15 +23,13 @@ describe('useHandleErrorMessage', () => {
         const handleErrorMessage = useHandleErrorMessage();
         const networkError = new Error('Network Error');
         handleErrorMessage(null, networkError);
-
         expect(message.error).toHaveBeenCalledWith('error.networkError');
     });
     // Testes para erros de status desconhecido
     it('handles an unknown error status', () => {
         const handleErrorMessage = useHandleErrorMessage();
         handleErrorMessage(999, null);
-
-        expect(message.error).toHaveBeenCalledWith('error.defaultErrorWithCode');
+        expect(message.error).toHaveBeenCalledWith('error.defaultError');
     });
 
     // Testes para códigos de status 1xx
