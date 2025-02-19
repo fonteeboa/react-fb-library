@@ -13,4 +13,7 @@ export interface DynamicTableProps<T> {
   customOptions?: Action[]; 
   rowSelectionBoolean?: boolean;
   showBulkActionOptions?: boolean;
+  actionOpenText?: string;
+  confirmDeleteMessage?: string;
+  actionDeleteText?: string;
 }

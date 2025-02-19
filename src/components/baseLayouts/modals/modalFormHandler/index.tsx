@@ -1,14 +1,12 @@
 import Modal from 'react-modal';
 import React, { useEffect } from "react";
 import { Button } from '../../../baseComponents';
-import { useTranslation } from 'react-i18next';
 import { ModalProps } from '../types';
 import { Form, Card, Divider, Space } from "antd";
 import { renderfields } from '../../../../utils/renderField';
 import { setCurrentItemValues, handleFormSubmit, setFieldValues as setFieldValuesService } from '../services/modalService';
 
-export const ModalFormHandler: React.FC<ModalProps> = ({ closeModal, onSave, fields, contentLabel, currentItem }) => {
-   const { t } = useTranslation();
+export const ModalFormHandler: React.FC<ModalProps> = ({ closeModal, onSave, fields, contentLabel, currentItem, onCancelText, onSaveText }) => {
    const [form] = Form.useForm<any>();
 
    useEffect(() => {
@@ -52,8 +50,8 @@ export const ModalFormHandler: React.FC<ModalProps> = ({ closeModal, onSave, fie
             <Divider key="complexFormDivider"/>
 
             <div className="modalFooter">
-               <Button key="cancel" type="default" onClick={closeModal} className="btn btn-secondary" label={t("common.cancel")} />
-               <Button key="save" type="primary" onClick={handleSubmit} className="btn btn-primary" label={t("common.save")} />
+               <Button key="cancel" type="default" onClick={closeModal} className="btn btn-secondary" label={onCancelText ? onCancelText : "Cancel"} />
+               <Button key="save" type="primary" onClick={handleSubmit} className="btn btn-primary" label={onSaveText ? onSaveText : "Save"} />
             </div>
         
          </Card>

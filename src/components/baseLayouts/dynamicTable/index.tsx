@@ -4,7 +4,6 @@ import { tableStyle } from './constants';
 import type { DynamicTableProps } from './types';
 import HeaderPageProps from '../../layout/headerPage';
 import { Action } from '../../baseComponents/bulkActionsDropdown/types';
-import { useTranslation } from 'react-i18next';
 
 /**
  * Render a custom table component.
@@ -12,10 +11,7 @@ import { useTranslation } from 'react-i18next';
  * @param {DynamicTableProps<T>} { pageTitle, dataSource, columns, title, footer, bulkAction } - The props for the custom table component.
  * @return {JSX.Element} The rendered custom table component.
  */
-const DynamicTable = <T extends object>({ pageTitle,  dataSource, columns, title, footer, deleteAction, openModalAction, customOptions = [], rowSelectionBoolean = false, showBulkActionOptions = true }: DynamicTableProps<T>) => {
-
-   const { t } = useTranslation();
-
+const DynamicTable = <T extends object>({ pageTitle,  dataSource, columns, title, footer, deleteAction, openModalAction, customOptions = [], rowSelectionBoolean = false, showBulkActionOptions = true, actionOpenText = "", confirmDeleteMessage="", actionDeleteText=""}: DynamicTableProps<T>) => {
    const [buttonEnabled, setButtonEnabled] = useState(true);
    const [selectedRowKeys, setSelectedRowKeys] = useState<T[]>([]);
 
@@ -44,15 +40,15 @@ const DynamicTable = <T extends object>({ pageTitle,  dataSource, columns, title
    const bulkActionOptions: Action[] = [
       ...customOptions,
       {
-         name: t("common.add"),
+         name: actionOpenText ? actionOpenText : "Add",
          handler: openModalAction,
          type: "primary",
          activeAction: true
       },
       {
-         name: t("common.delete.select"),
+         name: actionDeleteText ? actionDeleteText : "Delete",
          handler: deleteAll,
-         confirmMessage: t('common.delete.confirmation.multiple'),
+         confirmMessage: confirmDeleteMessage ? confirmDeleteMessage : "Are you sure you want to delete this item?",
          type: "danger",
          activeAction: buttonEnabled
       },

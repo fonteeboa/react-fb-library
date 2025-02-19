@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Grid } from '../../components';
-import '../../i18n';
 import { dataSource, columns, bulkAction, mockDeleteAction, mockOpenModalAction } from '../mock/grid';
 import { setMatchMediaMock } from '../mock/matchMedia';
 
@@ -43,7 +42,7 @@ describe('Grid', () => {
     const checkboxes = screen.getAllByRole('checkbox');
     fireEvent.click(checkboxes[0]);
     fireEvent.click(screen.getAllByRole('button')[0]);
-    fireEvent.click(screen.getByText('common.delete.select'));
+    fireEvent.click(screen.getByText('Delete'));
     expect(mockDeleteAction).toHaveBeenCalledWith(dataSource);
   });
 

@@ -5,6 +5,8 @@ export interface Action {
     type?: string;
     confirmMessage?: string;
     activeAction?: boolean;
+    okText?: string;
+    cancelText?: string;
   }
   
   

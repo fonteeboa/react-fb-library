@@ -74,3 +74,4 @@ export const deleteService = async <T>(params: ServiceParams): Promise<T | boole
 export const checkGetRequest = async (params: ServiceParams): Promise<boolean> => {
    return makeFetchRequest<boolean>(params, 'GET');
 };
+

@@ -1,17 +1,10 @@
 import { useHandleErrorMessage } from '../../helpers/handleError';
 import { message } from 'antd';
-import { useTranslation } from 'react-i18next';
 
 jest.mock('antd', () => ({
     message: {
         error: jest.fn(),
     },
-}));
-
-jest.mock('react-i18next', () => ({
-    useTranslation: () => ({
-        t: jest.fn().mockImplementation((key) => key),
-    }),
 }));
 
 /*

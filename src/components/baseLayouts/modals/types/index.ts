@@ -41,5 +41,7 @@ export type ModalProps = {
   fields: Field[];
   contentLabel: string;
   currentItem?: any;
+  onCancelText?: string;
+  onSaveText?: string;
 };
   

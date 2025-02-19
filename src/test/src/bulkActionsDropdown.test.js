@@ -44,7 +44,7 @@ describe('BulkActionsDropdown', () => {
         fireEvent.click(screen.getByRole('button'));
         fireEvent.click(screen.getByText('Dangerous Action'));
 
-        const popconfirmYesButton = screen.getByText('common.ok');
+        const popconfirmYesButton = screen.getByText('Yes');
         fireEvent.click(popconfirmYesButton);
 
         expect(mockActions[1].handler).toHaveBeenCalled();

@@ -1,4 +1,5 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { JSX } from 'react';
 
 export type FontAwesomeIconType = IconDefinition | string;
 

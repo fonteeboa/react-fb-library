@@ -26,16 +26,16 @@ describe('Modal render', () => {
   it('deve renderizar o modal mockFields', () => {
     makeRender(mockFields);
     expect(screen.getByText('common.name2')).toBeInTheDocument();
-    expect(screen.getByText('common.cancel')).toBeInTheDocument();
-    expect(screen.getByText('common.save')).toBeInTheDocument();
+    expect(screen.getByText('Cancel')).toBeInTheDocument();
+    expect(screen.getByText('Save')).toBeInTheDocument();
   });
 
   it('deve renderizar o modal mockFieldsDoubleLines', () => {
     makeRender(mockFieldsDoubleLines);
     expect(screen.getByText('common.name')).toBeInTheDocument();
     expect(screen.getByText('common.key')).toBeInTheDocument();
-    expect(screen.getByText('common.cancel')).toBeInTheDocument();
-    expect(screen.getByText('common.save')).toBeInTheDocument();
+    expect(screen.getByText('Cancel')).toBeInTheDocument();
+    expect(screen.getByText('Save')).toBeInTheDocument();
   });
 
 });
@@ -44,7 +44,7 @@ describe('Modal functions', () => {
 
   it('deve chamar closeModal ao clicar no botão cancelar', () => {
     makeRender(mockFields);
-    fireEvent.click(screen.getByText('common.cancel'));
+    fireEvent.click(screen.getByText('Cancel'));
     expect(mockCloseModal).toHaveBeenCalled();
   });
 

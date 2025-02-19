@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import { Modal, Button, Tabs, Card, Form } from 'antd';
 import { FormInstance } from "antd/lib/form";
 import { renderfields } from '../../../../utils/renderField';
-import { MultiModalProps, TabContent } from '../types';
+import { MultiModalProps, TabContent, FormData } from '../types';
 const { TabPane } = Tabs;
 
 export const MultiModalFormHandler: React.FC<MultiModalProps> = ({ dynamicModals = [], pageTitle, handleSaveData, closeModal, }) => {
    const [activeTab, setActiveTab] = useState('1');
    const [modalVisible, setModalVisible] = useState(false);
-   const [form] = Form.useForm<FormInstance<FormData>>();
+   const [form] = Form.useForm<FormData>();
    const handleTabChange = (key: string) => {
       setActiveTab(key);
    };
@@ -60,4 +60,3 @@ export const MultiModalFormHandler: React.FC<MultiModalProps> = ({ dynamicModals
       </Card>
    );
 };
-

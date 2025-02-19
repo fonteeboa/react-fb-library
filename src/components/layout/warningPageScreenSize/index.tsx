@@ -1,23 +1,22 @@
 import React from 'react';
 import { Result } from 'antd';
-import { useTranslation } from 'react-i18next';
+import { WarningPageScreenSizeProps } from './types';
 
 /**
  * Renders the WarningPageScreenSize component.
  *
- * @return {ReactNode} The rendered component.
+ * @param {WarningPageScreenSizeProps} props - The props for the component.
+ * @return {React.ReactNode} The rendered component.
  */
-const WarningPageScreenSize: React.FC = () => {
-   const { t } = useTranslation();
-
-   return (
-      <Result
-         className='centered-content'
-         status="warning"
-         title={t('warningPage.title')}
-         subTitle={t('warningPage.subTitle')}
-      />
-   );
+const WarningPageScreenSize: React.FC<WarningPageScreenSizeProps> = ({ warningTitle, warningSubTitle }) => {
+  return (
+    <Result
+      className="centered-content"
+      status="warning"
+      title={warningTitle || "Screen Too Small"}
+      subTitle={warningSubTitle || "Sorry, this page is not available on screens smaller than 600px."}
+    />
+  );
 };
 
 export default WarningPageScreenSize;

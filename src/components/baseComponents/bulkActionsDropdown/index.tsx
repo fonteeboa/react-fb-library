@@ -4,10 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { BulkActionsDropdownProps, Action } from './types';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
 
 const BulkActionsDropdown: React.FC<BulkActionsDropdownProps> = ({ actions = [] }) => {
-   const { t } = useTranslation();
    const [menuVisible, setMenuVisible] = useState(false);
    const openMenu = () => {
       setMenuVisible(true);
@@ -33,8 +31,8 @@ const BulkActionsDropdown: React.FC<BulkActionsDropdownProps> = ({ actions = [] 
                   <Popconfirm
                      title={action.confirmMessage ? action.confirmMessage : action.name}
                      onConfirm={(e) => handleActionClick(action, e)}
-                     okText={t('common.ok')}
-                     cancelText={t('common.cancel')}
+                     okText={action.okText ? action.okText : 'Yes'}
+                     cancelText={action.cancelText ? action.cancelText : 'No'}
                      icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
                      key={action.name}
                   >
