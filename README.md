@@ -2,7 +2,7 @@
 
 FBLibrary é uma biblioteca autoral que reúne componentes e bases fundamentais para desenvolvimento eficiente. Nosso objetivo é criar um ecossistema de componentes, desde elementos simples, como inputs e botões, até layouts completos, que podem ser reutilizados em todos os aspectos do desenvolvimento, poupando-lhe o tempo e esforço de escrever código repetitivo.
 
-[![npm version](https://img.shields.io/npm/v/fblibrary-react)](https://www.npmjs.com/package/react-fblibrary)
+[![npm version](https://img.shields.io/npm/v/react-fblibrary)](https://www.npmjs.com/package/react-fblibrary)
 [![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 [![Quality Gate overall Status](https://sonarcloud.io/api/project_badges/measure?project=fonteeboa_FBLibrary&metric=alert_status)](https://sonarcloud.io/summary/overall?id=fonteeboa_FBLibrary)
 [![Quality Gate overall Status](https://sonarcloud.io/api/project_badges/measure?project=fonteeboa_FBLibrary&metric=security_rating)](https://sonarcloud.io/summary/overall?id=fonteeboa_FBLibrary)
